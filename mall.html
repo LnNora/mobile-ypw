@@ -4,9 +4,63 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="css/mall.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<title>商城</title>
 </head>
 <body>
-	
+	<header class="s1">
+		<div class="iconfont icon-arrowleft">返回</div>
+		<div>商城</div>
+		<div class="iconfont icon-home"></div>
+	</header>
+	<div class="banner">
+	</div>
+	<div class="classification">
+		<ul class="s3">
+			<li class="sort-list"><img src="images/fitting.png">家居家纺</a></li>
+			<li class="sort-list"><img src="images/cakes.png">鲜花蛋糕</a></li>
+			<li class="sort-list"><img src="images/drinks.png">茶酒饮料</a></li>
+			<li class="sort-list"><img src="images/fruits.png">生鲜水果</a></li>
+			<li class="sort-list"><img src="images/health.png">养生滋补</a></li>
+			<li class="sort-list"><img src="images/snacks.png">休闲零食</a></li>
+			<li class="sort-list"><img src="images/oil.png">粮油干货</a></li>
+			<li class="sort-list"><img src="images/more.png">更多</a></li>
+		</ul>
+	</div>
+	<div class="recommendation">
+		<div class="tip-list">
+			<h1 class="s2 iconfont icon-zuo">鲜花蛋糕</h1>
+			<div class="tip-list-images">
+				<img src="images/cake1.png">
+				<img src="images/cake2.png">
+				<img src="images/cake3.png">
+				<img src="images/cake4.png">
+			</div>
+		</div>
+		<div class="tip-list">
+			<h1 class="s2 iconfont icon-zuo">生鲜水果</h1>
+			<div class="tip-list-images">
+				<img src="images/fruit1.png">
+				<img src="images/fruit2.png">
+				<img src="images/fruit3.png">
+				<img src="images/fruit4.png">
+			</div>
+		</div>
+	</div>
+	<div class="nav">
+		<ul>
+			<li class="nav-list s4"><span class="iconfont icon-all s4 "></span>商城</li>
+			<li class="nav-list s4"><span class="iconfont icon-category s4"></span>分类</li>
+			<li class="nav-list s4"><span class="iconfont icon-cart s4"></span>购物车</li>
+			<li class="nav-list s4"><span class="iconfont icon-account s4"></span>我的</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+
+		var nav_h = document.getElementsByClassName('nav')[0].offsetHeight;
+		document.getElementsByClassName('recommendation')[0].style.marginBottom = nav_h + "px";
+	</script>
 </body>
 </html>

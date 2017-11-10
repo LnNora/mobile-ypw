@@ -1,0 +1,14 @@
+
+header{
+	height: 4.031rem;
+	background-color: #d43c33;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 0.969rem;
+}
