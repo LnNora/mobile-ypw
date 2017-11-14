@@ -1,6 +1,10 @@
 
+html,body{
+	height: 100%;
+}
+/*头部*/
 header{
-	height: 4.031rem;
+	height: 3.93rem;
 	background-color: #d43c33;
 	color: white;
 	display: flex;
@@ -11,4 +15,50 @@ header{
 	width: 100%;
 	box-sizing: border-box;
 	padding: 0 0.969rem;
+}
+
+.blow-header{
+	margin-top: 3.93rem;
+}
+
+/*底部导航*/
+.nav{
+	color: #989898;
+	border-top: solid 1px #989898;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: white;
+}
+.nav ul{
+	display: flex;
+	padding: 0.563rem 0.969rem 0.344rem 0.969rem;
+	justify-content: space-between;
+}
+
+.nav-list{
+	width: 20%;
+	text-align: center;
+
+}
+.nav-list:hover{
+	color: #d43c33;
+}
+.nav-list span{
+	display: block;
+	text-align: center;
+}
+
+.nav-list .iconfont:before{
+	font-size:1.56rem;
+}
+
+/*字体*/
+@font-face{
+	font-family: pingfang;
+	src:url('font/PingFang PingFang Regular.ttf');
+}
+
+body{
+	font-family: pingfang;
 }
