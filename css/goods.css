@@ -1,0 +1,79 @@
+
+body{
+	background-color: #f9f9f9;
+	color: #4c4c4c;
+}
+a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+.s2{font-size:0.938rem;}
+.s4{font-size:0.813rem;}
+.nav2{
+	display: flex;
+	padding:0 0.44rem;
+	align-items: center;
+	background-color: white;
+	margin-bottom: 0.59rem;
+}
+
+.classification2{
+	display: flex;
+	width: 82%;
+	overflow: scroll;
+
+}
+
+.classification2 li{
+	flex-shrink: 0;
+}
+.classification2 li a{
+	display: inline-block;
+	padding:0.69rem 0.53rem;
+}
+.classification2 li a:hover{
+	border-bottom: solid 1px #d43c33;
+	color: #d43c33;
+}
+
+
+.sort{
+	padding-left: 0.96rem;
+}
+.sort span:first-child{
+	color: #d43c33;
+}
+
+/*商品列表部分*/
+
+.good-list{
+	padding: 0 0.938rem;
+	background-color: white;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap; 
+
+}
+.good{
+	padding: 0.938rem 0;
+	border-bottom:solid 1.4px #e2e2e2;
+}
+.good img{
+	width: 10.2rem;
+	border: solid 1px #f9f9f9;
+}
+
+.good p{
+	margin: 0.625rem 0;
+}
+.good p:first-child{
+	margin-top: 0.781rem;
+}
+
+.good-name{
+	color: black;
+}
+.good-price{
+	color:#d43c33;
+}

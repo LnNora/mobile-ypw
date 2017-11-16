@@ -1,6 +1,12 @@
-.s2{font-size:1.1rem;}
-.s3{font-size: 1rem;}
+.s1{font-size: 1.06rem;}
+.s2{font-size:0.938rem;}
+.s3{font-size: 0.875rem;}
+.s4{font-size:0.813rem;}
+.s5{font-size: 0.625rem;}
 
+html,body{
+	height: 100%;
+}
 body{
 		overflow:hidden;
 }
@@ -47,4 +53,9 @@ body{
 	text-align: center;
 	display: inline-block;
 	width: 100%;
+}
+
+
+.classification{
+	color: #d43c33;
 }

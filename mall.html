@@ -20,7 +20,7 @@
 	<div class="classification">
 		<ul class="s3">
 			<li class="sort-list"><img src="images/fitting.png">家居家纺</a></li>
-			<li class="sort-list"><img src="images/cakes.png">鲜花蛋糕</a></li>
+			<li class="sort-list" onclick="window.location.href='goods.html'"><img src="images/cakes.png">鲜花蛋糕</a></li>
 			<li class="sort-list"><img src="images/drinks.png">茶酒饮料</a></li>
 			<li class="sort-list"><img src="images/fruits.png">生鲜水果</a></li>
 			<li class="sort-list"><img src="images/health.png">养生滋补</a></li>
@@ -29,7 +29,7 @@
 			<li class="sort-list"><img src="images/more.png">更多</a></li>
 		</ul>
 	</div>
-	<div class="recommendation">
+	<div class="recommendation upon-nav">
 		<div class="tip-list">
 			<h1 class="s2 iconfont icon-zuo">鲜花蛋糕</h1>
 			<div class="tip-list-images">
@@ -51,16 +51,16 @@
 	</div>
 	<div class="nav">
 		<ul>
-			<li class="nav-list s4"><span class="iconfont icon-all s4 "></span>商城</li>
-			<li class="nav-list s4"><span class="iconfont icon-category s4"></span>分类</li>
-			<li class="nav-list s4"><span class="iconfont icon-cart s4"></span>购物车</li>
-			<li class="nav-list s4"><span class="iconfont icon-account s4"></span>我的</li>
+			<li class="nav-list s5 mall" onclick="window.location.href='mall.html'"><span class="iconfont icon-all s5 "></span>商城</li>
+			<li class="nav-list s5 classification" onclick="window.location.href='classification.html'"><span class="iconfont icon-category s5"></span>分类</li>
+			<li class="nav-list s5"><span class="iconfont icon-cart s5"></span>购物车</li>
+			<li class="nav-list s5"><span class="iconfont icon-account s5"></span>我的</li>
 		</ul>
 	</div>
 	<script type="text/javascript">
 
 		var nav_h = document.getElementsByClassName('nav')[0].offsetHeight;
-		document.getElementsByClassName('recommendation')[0].style.marginBottom = nav_h + "px";
+		document.getElementsByClassName('upon-nav')[0].style.marginBottom = nav_h + "px";
 	</script>
 </body>
 </html>

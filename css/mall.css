@@ -1,13 +1,12 @@
 
-.s1{font-size: 1.25rem;}
-.s2{font-size:1.1rem;}
-.s3{font-size: 1rem;}
-.s4{font-size: 0.9rem;}
+.s1{font-size: 1.06rem;}
+.s2{font-size:0.938rem;}
+.s3{font-size: 0.875rem;}
+.s4{font-size:0.813rem;}
+.s5{font-size: 0.625rem;}
 
 
-.icon-arrowleft:before,.icon-home:before{
-	font-size: 1.25rem;
-}
+
 .banner{
 	height: 9.375rem;
 	background-image: url('../images/banner.png');
@@ -73,6 +72,10 @@
 	width: 10.47rem;
 	height: 10.47rem;
 	margin-bottom: 0.6rem;
+}
+
+.mall{
+	color: #d43c33;
 }
 
 

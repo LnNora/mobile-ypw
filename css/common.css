@@ -1,7 +1,5 @@
 
-html,body{
-	height: 100%;
-}
+
 /*头部*/
 header{
 	height: 3.93rem;
@@ -19,6 +17,10 @@ header{
 
 .blow-header{
 	margin-top: 3.93rem;
+}
+.icon-arrowleft:before,.icon-home:before{
+	font-size: 1.25rem;
+
 }
 
 /*底部导航*/
@@ -53,6 +55,13 @@ header{
 	font-size:1.56rem;
 }
 
+/*去除点击时的阴影*/
+.nav-list{
+-webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+
+}
 /*字体*/
 @font-face{
 	font-family: pingfang;
