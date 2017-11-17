@@ -2,11 +2,10 @@
 
 /*头部*/
 header{
-	height: 3.93rem;
+	height: 2.81rem;
 	background-color: #d43c33;
 	color: white;
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 	position: fixed;
 	top: 0;
@@ -14,9 +13,21 @@ header{
 	box-sizing: border-box;
 	padding: 0 0.969rem;
 }
+.left{
+	position: absolute;
+}
+.center{
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+}
+.right{
+	position: absolute;
+	right: 0.969rem;
+}
 
 .blow-header{
-	margin-top: 3.93rem;
+	margin-top: 2.81rem;
 }
 .icon-arrowleft:before,.icon-home:before{
 	font-size: 1.25rem;

@@ -11,26 +11,28 @@
 </head>
 <body>
 	<!--头部-->
+	
 	<header class="s1">
-		<div class="iconfont icon-arrowleft s2">返回</div>
-		<div>进口蛋糕</div>
-		<div class="iconfont icon-home" onclick="window.location.href='mall.html'"></div>
+		<div class="iconfont icon-arrowleft s2 left">返回</div>
+		<div class="center">进口蛋糕</div>
+		<div class="iconfont icon-home right" onclick="window.location.href='mall.html'"></div>
 	</header>
 	<div class="nav2 blow-header">
 		<ul class="classification2 s2">
-			<li><a href="#tab">全部分类</a></li>
-			<li><a href="#tab1">进口蛋糕</a></li>
-			<li><a href="#tab2">新品专区</a></li>
-			<li><a href="#tab3">冰淇淋</a></li>
-			<li><a href="#tab4">人气蛋糕</a></li>
+			<li class="category" ><a href="#tab0" id="0">全部分类</a></li>
+			<li class="category" ><a href="#tab1" id="1">进口蛋糕</a></li>
+			<li class="category" ><a href="#tab2" id="2">新品专区</a></li>
+			<li class="category" ><a href="#tab3" id="3">冰淇淋蛋糕</a></li>
+			<li class="category" ><a href="#tab4" id="4">人气蛋糕</a></li>
 		</ul>
 		<div class="sort s2">
 			<span>价格</span>
-			<span></span>
-			<span></span>
+			<span class="icon-sort-up iconfont "></span>
+			<span class="icon-sort-down iconfont"></span>
 		</div>
 	</div>
-	<div class="good-list">
+	
+	<div id="tab0" class="good-list">
 		<div  class="good">
 			<img src="images/good1.png">
 			<p class="good-name s2">Dark Ale 深艾尔</p>
@@ -58,6 +60,95 @@
 			<p class="good-shop s4">21cake</p>
 			<p class="good-price">￥<span>398</span></p>
 		</div>
+		<div  class="good">
+			<img src="images/good4.png">
+			<p class="good-name s2">Dark Ale 深艾尔</p>
+			<p class="good-shop s4">21cake</p>
+			<p class="good-price">￥<span>398</span></p>
+		</div>
+		<div  class="good">
+			<img src="images/good4.png">
+			<p class="good-name s2">Dark Ale 深艾尔</p>
+			<p class="good-shop s4">21cake</p>
+			<p class="good-price">￥<span>398</span></p>
+		</div>
 	</div>
+ 
+	<div id="tab1" class="good-list">
+		<div  class="good">
+			<img src="images/good1.png">
+			<p class="good-name s2">Dark Ale 深艾尔</p>
+			<p class="good-shop s4">21cake</p>
+			<p class="good-price">￥<span>398</span></p>
+		</div>
+		<div  class="good">
+			<img src="images/good1.png">
+			<p class="good-name s2">Dark Ale 深艾尔</p>
+			<p class="good-shop s4">21cake</p>
+			<p class="good-price">￥<span>398</span></p>
+		</div>
+		<div  class="good">
+			<img src="images/good1.png">
+			<p class="good-name s2">Dark Ale 深艾尔</p>
+			<p class="good-shop s4">21cake</p>
+			<p class="good-price">￥<span>398</span></p>
+		</div>
+		<div  class="good">
+			<img src="images/good1.png">
+			<p class="good-name s2">Dark Ale 深艾尔</p>
+			<p class="good-shop s4">21cake</p>
+			<p class="good-price">￥<span>398</span></p>
+		</div>
+		<div  class="good">
+			<img src="images/good1.png">
+			<p class="good-name s2">Dark Ale 深艾尔</p>
+			<p class="good-shop s4">21cake</p>
+			<p class="good-price">￥<span>398</span></p>
+		</div>
+		<div  class="good">
+			<img src="images/good1.png">
+			<p class="good-name s2">Dark Ale 深艾尔</p>
+			<p class="good-shop s4">21cake</p>
+			<p class="good-price">￥<span>398</span></p>
+		</div>
+		<div  class="good">
+			<img src="images/good1.png">
+			<p class="good-name s2">Dark Ale 深艾尔</p>
+			<p class="good-shop s4">21cake</p>
+			<p class="good-price">￥<span>398</span></p>
+		</div>
+		<div  class="good">
+			<img src="images/good1.png">
+			<p class="good-name s2">Dark Ale 深艾尔</p>
+			<p class="good-shop s4">21cake</p>
+			<p class="good-price">￥<span>398</span></p>
+		</div>
+
+
+		<script type="text/javascript">
+			var categories = document.getElementsByClassName('category');
+			var categories_l = categories.length;
+			var lists = document.getElementsByClassName('good-list');
+			var lists_l = lists.length;
+			for(var i=0;i<categories_l;i++){
+				categories[i].addEventListener('click',switchTab,false);
+			}
+          	function switchTab(event){
+          		for(var i=0;i<lists_l;i++){
+          			lists[i].style.display = "none";
+          		}
+          		for(var i=0;i<categories_l;i++){
+				categories[i].style.borderBottom = "none"
+				categories[i].style.color = "#4c4c4c";
+			}
+          		var x = event.target;
+          		var j = x.id;
+          		lists[j].style.display="flex";
+          		categories[j].style.borderBottom = "solid 1px #d43c33";
+          		categories[j].style.color = "#d43c33";
+			}
+			
+		
+		</script>
 </body>
 </html>

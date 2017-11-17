@@ -3,6 +3,11 @@ body{
 	background-color: #f9f9f9;
 	color: #4c4c4c;
 }
+
+
+.good-list{
+	margin-top: 6.1rem;
+}
 a {
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
@@ -14,15 +19,18 @@ a {
 	display: flex;
 	padding:0 0.44rem;
 	align-items: center;
-	background-color: white;
+	justify-content: space-between;
 	margin-bottom: 0.59rem;
+	background-color: white;
+	position: fixed;
+	top: 0;
 }
 
 .classification2{
 	display: flex;
 	width: 82%;
 	overflow: scroll;
-
+	
 }
 
 .classification2 li{
@@ -32,28 +40,52 @@ a {
 	display: inline-block;
 	padding:0.69rem 0.53rem;
 }
-.classification2 li a:hover{
+
+.category:first-child{
 	border-bottom: solid 1px #d43c33;
 	color: #d43c33;
 }
 
 
 .sort{
-	padding-left: 0.96rem;
+	padding:0 0.96rem;
+	position: relative;
+	line-height: 0.938rem;
+	box-shadow: -10px 0px 10px white;
+
 }
 .sort span:first-child{
 	color: #d43c33;
+	margin-right: 0.1rem;
+
 }
 
+.icon-sort-up,.icon-sort-down{
+	position: absolute;
+	right: 0;bottom: 0;
+}
+.icon-sort-down:hover,.icon-sort-up:hover{color:#d43c33;;}
+
 /*商品列表部分*/
+
+
+
+
 
 .good-list{
 	padding: 0 0.938rem;
 	background-color: white;
-	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap; 
 
+}
+#tab0{
+	display: flex;
+}
+
+
+.good-list{
+	display: none;
 }
 .good{
 	padding: 0.938rem 0;
@@ -70,7 +102,9 @@ a {
 .good p:first-child{
 	margin-top: 0.781rem;
 }
-
+.good p:last-child{
+	margin-bottom: 0;
+}
 .good-name{
 	color: black;
 }
