@@ -5,9 +5,7 @@ body{
 }
 
 
-.good-list{
-	margin-top: 6.1rem;
-}
+
 a {
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
@@ -24,6 +22,7 @@ a {
 	background-color: white;
 	position: fixed;
 	top: 0;
+	
 }
 
 .classification2{
@@ -47,7 +46,7 @@ a {
 }
 
 
-.sort{
+.sort{  
 	padding:0 0.96rem;
 	position: relative;
 	line-height: 0.938rem;
@@ -64,14 +63,18 @@ a {
 	position: absolute;
 	right: 0;bottom: 0;
 }
-.icon-sort-down:hover,.icon-sort-up:hover{color:#d43c33;;}
+
+
+
 
 /*商品列表部分*/
 
 
 
 
-
+.tab{
+	margin-top: 6.1rem;
+}
 .good-list{
 	padding: 0 0.938rem;
 	background-color: white;
@@ -104,10 +107,8 @@ a {
 }
 .good p:last-child{
 	margin-bottom: 0;
+	color:#d43c33;
 }
 .good-name{
 	color: black;
-}
-.good-price{
-	color:#d43c33;
 }
