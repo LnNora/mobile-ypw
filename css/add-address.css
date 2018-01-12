@@ -1,0 +1,147 @@
+html{height: 100%;}
+body{
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background-color: #f9f9f9;
+}
+
+
+	/*布局*/
+	ul{background-color: white;margin: 0;padding-left: 0.875rem;}
+	.layout{
+		display:flex;
+		flex-direction:row;
+		justify-content:flex-start;
+		align-items:center;
+		border-bottom:solid 1px #F9F9F9;
+	}
+
+    .layout:last-child{
+    	border-bottom: none;
+    }
+
+	.bar-nav{justify-content:flex-start;}
+	h1{margin-left:25%;}
+	li a{margin-left:0.5rem;}
+    li p{color: #989898;}
+	/*文字框*/
+	input{
+	border:none;
+	width:80%;
+	color: black;
+    }
+
+
+
+	/*底部*/
+	.save{
+		display:block;
+		width:21.375rem;
+		height: 3.125rem;
+		margin: 0 auto;
+		text-align:center;
+		line-height: 3.125rem;
+		color:white;
+		background-color:#d43c33;
+		border-radius: 5px;}
+
+
+
+		/*选择地区*/
+		.selectPlace{
+			height: 50%;
+			width: 100%;
+			position: fixed;
+			top: 50%;
+			background-color: white;
+			font-size: 0.8rem;
+			box-shadow: 0px 5px 30px black;
+			padding: 0 1rem;
+			display: none;
+			z-index: 99;
+			overflow: hidden;
+		}
+
+		.selectPlace h1{
+			width: 92%;
+			margin: 0;
+			text-align: center;
+			padding: 1rem 0;
+			font-size: 1rem;
+			color: #a3a3a5;
+
+		}
+
+		.icon-cuowu:before{
+			color: black;
+			color: inherit;
+			font-size: 0.8rem;
+		}
+        .icon-cuowu{float: right;}
+		/*地区里面*/
+		#selectDiv{
+			display: flex;
+			height: 69%;
+			overflow: scroll;
+			position: relative;
+			
+		}
+		.select{
+			margin-right: 1rem;
+			width: 3rem;
+		}
+		.select div{
+			cursor: pointer;
+		}
+
+		.option{
+			margin-top:2rem;
+			/*width: 375px;*/
+
+		}
+
+
+
+		/*请选择*/
+		.defaultOption{
+			color:red;
+			border-bottom: solid 1px red;
+			padding-bottom: 0.4rem;
+			position: fixed;
+			background-color: white;
+
+		}
+
+
+		#defaulText{
+			display: inline-block;
+			width: 60%;
+			overflow: hidden;
+			text-overflow:ellipsis;
+			white-space: nowrap;
+			color:   #eeeeee;
+		}
+
+	a{text-decoration: none;}
+
+
+	/*改变placeholder颜色*/
+	::-webkit-input-placeholder { /* WebKit browsers */
+    color:   #eeeeee;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:   #eeeeee;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #eeeeee;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:   #eeeeee;
+}
+
+/*去掉点击时的阴影*/
+div,a,input{
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout:none;
+}

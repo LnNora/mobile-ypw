@@ -8,55 +8,69 @@ html,body{
 	height: 100%;
 }
 body{
-		overflow:hidden;
-		position: relative;
+	overflow:hidden;
 }
 .main{
 	display: flex;
     height: 100%;
 
+
 }
 
-.classification1{
+.class1-l{
 	background-color: #f6f6f6;
-	height: 100%;
-	min-width: 30%;
+	height: 90%;
+	min-width: 26.3%;
 	overflow: scroll;
 
 }
-.classification1 li{
-	padding: 1.25rem 1.375rem;
+.class1-l li{
+	padding: 1.25rem ;
 }
 
-.classification1 li:hover{
-	color: #d43c33;
-	background-color: white;
-	border-left: solid 1px #d43c33;
-}
-.classification2{
-	padding: 1.25rem;
-	height: 100%;
+
+.class2-l{
+	padding: 1.188rem 0 1.188rem 0.9rem;
+	height: 80%;
 	overflow: scroll;
 }
 
-.classification2 img{
-	width: 100%;
-	height: 4.22rem;
+.class2-l img{
+	width: 4.22rem;
+	display:block;
+	margin: 0 auto;
+	margin-bottom: 0.4rem;
 }
 
-.classification2 li{
-	width: 31%;
-	margin: 1rem  0;
-	display: inline-block;
+.class2-l li{
+	width: 33.3333%;
+	margin-bottom: 0.4rem;
 }
 
-.classification2 span{
+.class2-l span{
 	text-align: center;
 	display: inline-block;
-	width: 100%;
+	width: 90%;
+	line-height: 1rem;
+}
+
+.class1:first-child{
+	border-left: solid 1px #d43c33;
+	color: #d43c33;
+	background-color: white;
+}
+.classification{
+	color: #d43c33;
 }
 
 
-.classification{
-	color: #d43c33;
+.class2 ul{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 1.188rem;
+
+}
+
+.class2 h1{
+	margin-bottom: 1.188rem;
 }

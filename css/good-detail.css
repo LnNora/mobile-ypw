@@ -1,0 +1,197 @@
+
+html,body{
+	width: 100%;
+	overflow-x: hidden;
+}
+body{
+	background-color: #f9f9f9;
+}
+.s1{font-size: 0.938rem;}
+.s2{font-size: 0.813rem;}
+.s3{font-size: 0.625rem;}
+.price{
+	color: #d43c33;
+}
+.discount{
+	color: #5fa8ff;
+}
+.slideshow img{
+	width: 100%;
+}
+h1{
+	color: black;
+}
+.grey{
+	color: #989898;
+}
+
+/*主要内容*/
+
+
+.abstract {
+	line-height: 1.125rem;
+}
+
+
+.abstract,.type,.details,.recommendation{
+	margin-bottom: 0.656rem;
+	background-color: white;
+	padding: 0.781rem 0.969rem;
+}
+
+/*选择规格*/
+.type{
+	display: flex;
+	justify-content: space-between;
+}
+.result{
+	max-width: 80%;
+}
+.result:after{
+	content: "\e694";
+	display: inline-block;
+	color: #4c4c4c;
+
+}
+/*详细介绍*/
+.details h1,.recommendation h1{
+	padding-bottom: 0.781rem;
+	border-bottom: solid 1px #e2e2e2;
+}
+.details img{
+	width: 100%;
+}
+
+/*商品推荐*/
+
+.hot-goods{
+	margin-top: 0.781rem;
+	display: flex;
+	justify-content: flex-start;
+	overflow: scroll;
+}
+.hot-good{
+	flex-shrink:0;
+	width: 6.25rem;
+	margin-right: 1.406rem;
+}
+.hot-good img{
+	width: 100%;
+	border: solid 1px #e2e2e2;
+}
+
+/*底部*/
+footer{
+	background-color: white;
+    display: flex;
+    border-top: solid 1px #989898;
+    position: fixed;bottom: 0;
+    width: 100%;
+}
+.icon-kefu,.icon-cart{
+	color: #bdbdbd;
+	width: 17%;
+	display: inline-block;
+	text-align: center;
+	padding:0.375rem;
+}
+.icon-kefu:before,.icon-cart:before{
+	display: block;
+	font-size: 1.7rem;
+}
+.icon-kefu{
+	border-right: solid 1px #e2e2e2;
+}
+
+.add,.buy{
+	width: 33%;
+	color: white;
+	
+}
+.add{background-color: #f7be2d;}
+.buy{background-color: #d43c33;}
+
+.upon-footer{
+	margin-bottom: 3.563rem;
+}
+
+/*选择规格层*/
+.choose-type{
+	position: fixed;
+	bottom: 0;
+	background-color: white;
+	width: 100%;
+	max-height: 50%;
+	border-top: solid 2px #e2e2e2;
+	padding-top: 0.781rem;
+	padding-bottom: 0.781rem;
+	box-sizing:border-box;
+	display: none;
+}
+.selected-good{
+	display: flex;
+	padding-bottom: 0.781rem;
+	padding-left: 0.969rem;
+}
+.number{
+	display: inline-block;
+	width: 2rem;
+	text-align: center;
+}
+.choose-type img{
+	width: 6.25rem;height: 6.25rem;
+	border:solid 1px #e2e2e2;
+	margin-right: 0.688rem;
+
+}
+.good-text{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.good-text h1{
+	height: 2rem;
+	flex-shrink: 0;
+}
+
+.good-type{
+	padding-top: 0.781rem;
+	border-top: solid 1px #e2e2e2;
+	padding-left: 0.969rem;
+}
+.good-type h1{
+	margin-bottom: 0.5rem;
+}
+.types{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding-right: 0.969rem;
+}
+.types li{
+	box-sizing:border-box;
+	padding: 0.781rem 1.4rem;
+	border:solid 1px #e2e2e2;
+	border-radius: 5px;
+	width: 49%;
+	margin-bottom: 0.5rem;
+}
+
+.footer{
+    display: flex;
+    border-top: solid 1px #989898;
+    width: 100%;
+    justify-content: flex-end;
+}
+.account{
+	width: 34%;
+	padding: 1.2rem 0 1.2rem 0.969rem;
+	color: #d43c33;
+}
+
+
+.size:first-child{
+	background-color: #d43c33;
+	color: white;
+}

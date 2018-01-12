@@ -79,6 +79,8 @@ header{
 	src:url('font/PingFang Regular.ttf');
 }
 
-body{
+body,input{
 	font-family: pingfang;
 }
+
+input{font-size: inherit;}

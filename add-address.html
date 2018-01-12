@@ -1,0 +1,313 @@
+<!DOCTYPE html> 
+<html>
+<head> 
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<title>新增地址</title> 
+<link rel="stylesheet" href="css/style1.css"/>
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" href="css/add-address.css"/>
+<link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css">
+</head> 
+<body>
+<!---标题、返回---->
+<header class="s1">
+    <div class="iconfont icon-arrowleft s2 left">返回</div>
+    <div class="center">添加新地址</div>
+  </header>
+<!---新增地址表单---->
+<ul id="f" class="blow-header">
+	<li class="layout">
+
+	<p class="choosePlace s2" onclick="showSelectPlace()">所在地区：</p>
+	<a onclick="showSelectPlace()" id="defaulText" class="s2">请选择</a>
+	</li>
+	<li class="layout s2">
+	<p>姓名：</p>
+	<input type="text" placeholder="请输入收货人姓名"/>
+	</li>
+	<li class="layout s2">
+	<p>地址：</p>
+	<input  type="text" placeholder="请输入您的详细收货地址"/>
+	</li>
+	<li class="layout s2">
+	<p>电话：</p>
+	<input type="text" placeholder="请输入能够联系您的手机号码"/>
+	</li>
+	<li class="layout s2">
+	<p>邮编：</p>
+	<input type="text" placeholder="请输入当地邮编"/>
+	</li>
+	
+   <!-- <input type="button" name="" onclick="test()"/>-->
+</ul>
+<a class="save s2" id="save">保存地址</a>
+
+<div class="selectPlace">
+  <h1 ">所在地区<span class="iconfont icon-cuowu"onclick="foldSelect()"> </span></h1>
+  <div id ="selectDiv">
+    <div id="area" class="select" data-id="0"><div class="defaultOption">请选择</div></div>
+    <div id="city" class="select" data-id="1"></div>
+    <div id="county" class="select" data-id="2"></div>
+    <div id="town" class="select" data-id="3"></div>
+  </div>
+</div>
+<script type="text/javascript">
+	window.onload= function(){
+		 var h = document.getElementById("save").offsetHeight;
+		 document.getElementById("f").style.marginBottom=h+'px';
+		}
+
+</script>
+
+
+<script type="text/javascript">
+  var areaList = [
+
+    {name:"北京市",
+    list:[{name:"直辖市",
+    list:[{name:"朝阳区",list:["管庄","北苑","定福庄"]},
+    {name:"西城区",list:["内环到二环里","二环到三环"]}]}
+    ]},
+
+    {name:"重庆市",
+    list:[{name:"直辖市",
+    list:[{name:"江北区",list:["内环以内","寸滩镇","大石坝镇"]},
+    {name:"渝北区",list:["城区","礼嘉镇","两路镇","王家镇","悦来镇","玉峰山镇","大盛镇","木耳镇"]}]}
+    ]},
+
+    {name:"上海市",
+    list:[{name:"直辖市",
+    list:[{name:"静安区",list:["城区"]},
+    {name:"宝山区",list:["罗店镇","大场镇","杨行镇","顾村镇","高境镇","庙行镇","宝山城市工业园区","月浦镇"]}]}
+    ]},
+
+    {name:"天津市",
+    list:[{name:"直辖市",
+    list:[{name:"东丽区",list:["全境"]},
+    {name:"和平区",list:["全境"]}]}
+    ]},
+
+    {name:"河北省",
+    list:[{name:"唐山市",
+    list:[{name:"路北区",
+    list:["城区","高新技术产业园区","果园乡"]},
+    {name:"路南区",
+    list:["城区","女织寨乡"]}]},
+    ]},
+
+    {name:"四川",
+    list:[{name:"成都市",
+    list:[{name:"武侯区",
+    list:["城区","金花镇"]},
+    {name:"金牛区",
+    list:["城区","金牛乡"]}]},
+    ]},
+
+    {name:"云南省",
+    list:[{name:"大理州",
+    list:[{name:"大理市",
+    list:["大理镇","下关镇","喜洲镇"]},
+    {name:"洱源县",
+    list:["西山镇","三营镇","县城内"]}]},
+
+    {name:"红河州",
+    list:[{name:"个旧市",
+    list:["城区镇","锡城镇","沙甸镇"]},
+    {name:"开远市",
+    list:["城区","小龙潭镇","中和营镇"]}]},
+
+    {name:"西双版纳州",
+    list:[{name:"景洪市",
+    list:["普文镇","大渡港镇","基诺镇"]},
+    {name:"勐海县",list:["勐海镇","打洛镇"]}]}
+    ]}
+
+    ]
+    var area = document.getElementById('area');
+    var city = document.getElementById('city');
+    var county = document.getElementById('county');
+    var town = document.getElementById('town');
+    var options = document.getElementsByClassName('option');
+    var selectDiv = document.getElementById('selectDiv');
+    var selects = document.getElementsByClassName('select');
+    var selectPlace = document.getElementsByClassName('selectPlace')[0];
+    var defaulText =document.getElementById('defaulText');
+//addOption方法：向指定下拉框添加option元素
+      function addOption(listName,level,obj){
+        var option = document.createElement('DIV');
+        option.innerHTML = listName;
+        option.value = listName;
+        level.appendChild(option);
+        option.setAttribute("class","option");
+        option.obj = obj;
+        option.style.width = screen.width+'px';//为了下一级自动滑到左边的效果才这样
+      }
+      
+//addDefault方法：加入请选择
+ function addDefault(level){
+        var defaultOption = document.createElement('DIV');
+        defaultOption.innerHTML = "请选择";
+        level.appendChild(defaultOption);
+        defaultOption.setAttribute("class","defaultOption");
+        //defaultOption.setAttribute("class","option");
+      }
+//changePlace方法，点击每个option时都触发此方法
+      function changePlace(evt){
+        if(evt){
+          var evt = evt||event;
+          evt = evt.target;}else{
+            evt = city.getElementsByClassName('option')[0];//如果有“请选择”就是[1]，没有就是[0]
+          }
+          
+
+        
+        //以下几行是为了获取当前节点的全部兄弟节点,放入数组allSelect
+        var allChild = evt.parentNode.parentNode.childNodes;
+        var allSelect = [];
+        var evtIndex = 100;
+        var evtIndex2 = -1;
+        for(var i=0;i<allChild.length;i++){   
+          if(allChild[i].nodeName=='DIV'){
+            allSelect.push(allChild[i]);
+          }  
+        }
+        
+        //清空后面全部下拉框的option
+        var currentIndex = allSelect.indexOf(evt.parentNode);
+        var afterSelect = allSelect.filter(function(select){
+            return allSelect.indexOf(select)>currentIndex;
+        });
+        afterSelect.forEach(function(select){
+            select.innerHTML="";
+        });
+
+         
+        //插入下一级区域的option
+        var nextLevel = evt.parentNode.nextElementSibling; //获取下一级下拉框;
+        if (!nextLevel) {
+            evt.style.color = "red";
+            evt.parentNode.getElementsByClassName('defaultOption')[0].innerHTML = evt.innerHTML;
+            var defaultOptions = document.getElementsByClassName('defaultOption');
+            defaulText.innerHTML="";
+            for (var i =0; i<defaultOptions.length; i++) {
+              defaulText.innerHTML+=defaultOptions[i].innerHTML+" ";
+            }
+            defaulText.style.color = "black";
+            selectPlace.style.display = "none";
+
+            return;}//如果下一级为空，把每一级区域都放进Input里显示出来，然后退出函数
+        addDefault(nextLevel);//加入请选择option
+        if(typeof evt.obj.list[0]!="string"){
+          for(var i=0;i<evt.obj.list.length;i++){
+            addOption(evt.obj.list[i].name,nextLevel,evt.obj.list[i]);//evt.obj.list代表目前下拉框选中option对象的list属性
+
+          }
+        }else if(evt.obj.list[0]){
+          for(var i=0;i<evt.obj.list.length;i++){
+               addOption(evt.obj.list[i],nextLevel);//evt.obj.list代表目前下拉框选中option对象的list属性
+              }
+            }
+        
+
+       
+       
+        var evtOptions = evt.parentNode.getElementsByClassName('option');
+
+        //将当前级的其他option颜色变为inheirit
+        for(var i=0;i<evtOptions.length;i++){
+          evtOptions[i].style.color="inherit";
+        }
+        //将evt颜色变为红色，并放入defaultOption中,select宽度以evt的字数来决定
+        evt.style.color = "red";
+        var selectWidth = evt.parentNode.offsetWidth;
+        evt.parentNode.style.width = evt.innerHTML.length/3*selectWidth+'px';
+        evt.parentNode.getElementsByClassName('defaultOption')[0].innerHTML = evt.innerHTML;
+        
+        //隐藏当前级的option
+        for(var i=0;i<evtOptions.length;i++){
+          evtOptions[i].style.display="none";
+        }
+
+        //scrollWidth代表可视区域+滚动条宽度，screen.width是屏幕宽
+        nextLevel.style.display="block";
+        selectDiv.scrollLeft = selectDiv.scrollWidth-screen.width;
+        selectDiv.style.overflowX = "hidden";
+      
+        //为每个option添加click事件
+        for(var i=0;i<options.length;i++){
+          options[i].addEventListener('click',changePlace,false);
+        }
+        //为每个请选择添加事件
+        for(var i=0;i<document.getElementsByClassName('defaultOption').length;i++){
+        document.getElementsByClassName('defaultOption')[i].addEventListener('click',showCurrentOptions,false);
+      }     
+
+
+       }
+
+//isSpecial方法 判断选中的一级区域是不是直辖市
+  function isSpecial(evt){
+    var evt = evt||event;
+    evt = evt.target;
+      //获取目前下拉框选中的那个option
+      //var evtOption = evt.options[evt.options.selectedIndex];
+      if(evt.obj.list[0].name=="直辖市"){
+      changePlace();
+      city.style.display="none";
+    }else{
+      city.style.display="block";
+    }
+  }
+
+//showCurrentOptions方法
+function showCurrentOptions(evt){
+  var evt = evt||event;
+  evt = evt.target;
+  for(var i=0;i<options.length;i++){
+        options[i].style.display="none";
+      } 
+  var currentOptions = evt.parentNode.getElementsByClassName('option');
+  for(var i=0;i<currentOptions.length;i++){
+      currentOptions[i].style.display="block";
+   }    
+    
+}
+
+//遍历区域areaList数组，调用方法，三个实参是：数组每一项的name属性，area下拉框，数组的每一项
+      for(var i=0;i<areaList.length;i++){
+        addOption(areaList[i].name,area,areaList[i]);
+      }
+
+//为每个option添加onclick事件
+      for(var i=0;i<options.length;i++){
+        options[i].addEventListener('click',changePlace,false);
+      }
+
+//为每个area中的option添加click事件
+      for(var i=0;i<area.getElementsByClassName('option').length;i++){
+        area.getElementsByClassName('option')[i].addEventListener('click',isSpecial,false);
+      }
+ //为每个defaultOption添加click事件
+    for(var i=0;i<document.getElementsByClassName('defaultOption').length;i++){
+        document.getElementsByClassName('defaultOption')[i].addEventListener('click',showCurrentOptions,false);
+      }     
+
+//点击所在地区，弹出区域选择的DIV
+function showSelectPlace(){
+  selectPlace.style.display = "block";
+  
+}
+function test(){
+  alert(document.getElementsByTagName('body')[0].scrollLeft);
+}
+/*---------------------以上是关于地区的一切-----------------------*/
+
+ //收起区域
+ function foldSelect(){
+  selectPlace.style.display = "none";
+ }
+</script>
+
+</body> 
+</html>

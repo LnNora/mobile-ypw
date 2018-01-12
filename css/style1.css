@@ -1,0 +1,42 @@
+body{margin:0px;
+	}
+
+	
+	
+     .s1{font-size: 1.063rem;}
+     .s2{font-size: 0.938rem;}
+	
+		
+		/*搜索框布局*/
+		.story_search{
+			background:#F9F9F9;
+			padding:1.25rem;
+		}
+		
+		.story_list{
+			background:white;
+			display:flex;
+			align-items:center;
+			padding:1.25rem;;
+		}
+		
+		.list-r{padding-left:2em;}
+		.list-l{margin-left:3.75rem;}
+		
+		.story_search{ font-size:2.1875rem;}
+		h1{font-size:2.8625rem;font-weight:normal}
+		
+		
+		
+		/*字体*/
+		
+		.story_search{ font-size:1rem;}
+		.book a{color:black;}
+		h1{font-size:1rem;}
+		.book h1{margin-left:1.875rem;font-weight:normal;font-size:2.5rem;}
+		/*图书列表页和图书详情页*/
+		.author,.time,.price,.sale,.intro-content,.more{font-size:2.1875rem;} /*图书信息*/
+		.author span,.time span,.price span,.sale span,.intro-content{color:grey;}
+		.book-title{font-size:2.5rem;}/*图书标题*/
+		
+		

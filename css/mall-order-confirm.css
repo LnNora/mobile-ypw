@@ -1,0 +1,170 @@
+body{
+	background-color: #f9f9f9;
+}
+.s1{
+	font-size: 0.938rem;
+}
+
+.s2{
+	font-size: 0.813rem;
+}
+.price{
+	color: #d43c33;
+}
+
+/*地址部分*/
+.address-part{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 0 0.938rem;
+	height: 4.313rem;
+	background-color: white;
+	margin-bottom: 0.625rem;
+}
+.address{
+	margin: 0 0.938rem;
+	display: flex;
+	justify-content:space-between;
+	flex-wrap: wrap;
+
+}
+.address p{
+	line-height: 1.6rem;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.arrowright:after{
+	content: "\e694";
+	display: inline-block;
+	color: #c5c5c5;
+	font-weight: bold;
+}
+.icon-dizhitubiao:before{
+	display: inline-block;
+	color: #c5c5c5;
+}
+.greyfont{
+	color: #4c4c4c;
+}
+.blackfont{
+	color: black;
+}
+
+/*商城订单部分*/
+.order-part{
+	margin-bottom: 4rem;
+}
+.summary{
+	display: flex;
+	justify-content: space-between;
+	background-color: white;
+	padding: 0.906rem 0.938rem;
+}
+
+.order-info{
+	padding:0.938rem; 
+	display: flex;
+}
+.order-info img{
+	width: 6.281rem;
+	height: 6.281rem;
+} 
+.description{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin-left: 0.688rem;
+}
+
+
+.detail-part{
+	background-color: white;
+
+}
+.order-line{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-right:0.938rem; 
+	margin-left: 0.938rem;
+	border-bottom: solid 1px #e2e2e2;
+
+}
+
+
+.detail-part h1{
+	margin: 0.938rem 0;
+}
+
+.order-detail{
+	flex-direction: column;
+	align-items: flex-start;
+	border-bottom: none;
+	padding-right: 0;
+	margin-bottom: 0.928rem;
+	/*padding-bottom: 0.938rem;*/
+}
+.order-detail h1{
+	width:100%;
+	border-bottom:  solid 1px #e2e2e2;
+	padding-bottom: 0.938rem;
+	margin-bottom: 0;
+    }
+
+.order-detail ul{
+	box-sizing: border-box;
+	width: 100%;
+	padding-right:0.938rem;
+}
+.order-detail li{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0.4rem;
+}
+
+.order-line .arrowright:after{
+	margin-left: 0.4rem;
+
+}
+.detail{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+	padding-right: 0.938rem;
+}
+.order-detail .arrowright:after,.arrowdown:after{
+	font-size: 0.813rem;
+}
+/*底部*/
+footer{
+	display: flex;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+}
+
+.account,.confirm{
+	width: 50%;
+	text-align: center;
+	padding:1.063rem 0;
+}
+.account{background-color: white;}
+.confirm{background-color: #d43c33;color: white}
+
+/*订单明细默认收起的部分*/
+.order-detail ul{
+	display: none;
+}
+
+.arrowdown:after{
+	content: "\e692";
+	color: #c5c5c5;
+	font-weight: bold;
+}
+
+.items{
+	margin: 0.5rem 0;
+}

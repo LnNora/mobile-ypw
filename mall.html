@@ -8,6 +8,53 @@
 	<link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css">
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<title>商城</title>
+	<style>
+		header{z-index: 2;}
+		#iSlider-wrapper{
+			height: 9.375rem;
+			width: 100%;
+			overflow: hidden;
+			position: relative;
+
+		}
+		#iSlider-wrapper ul{
+			overflow: hidden;
+			height: 100%;
+			width: 100%;
+
+		}
+		.islider-pic{
+			width: 100%;height: 100%;
+			position: absolute;
+			overflow: hidden;
+		}
+		.islider-pic img{
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+
+		.islider-dot.active{
+    background-color: #d43c33;
+  }
+  .islider-dot-wrap{
+  	box-sizing: border-box;
+  	position: absolute;
+  	top: 10.5rem;
+  	width: 100%;
+  	text-align: center;
+  }
+  .islider-dot {
+    position: relative;
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    list-style: none;
+    margin: 5px;
+    background-color: white;
+}
+	</style>
 </head>
 <body>
 	<header class="s1">
@@ -15,7 +62,7 @@
 		<div class="center">进口蛋糕</div>
 		<div class="iconfont icon-home right" onclick="window.location.href='mall.html'"></div>
 	</header>
-	<div class="banner blow-header">
+	<div class="banner blow-header" id="iSlider-wrapper">
 	</div>
 	<div class="classification">
 		<ul class="s3">
@@ -57,10 +104,33 @@
 			<li class="nav-list s5"><span class="iconfont icon-account s5"></span>我的</li>
 		</ul>
 	</div>
-	<script type="text/javascript">
+	<script type="text/javascript" src="js/iSlider/build/iSlider.min.js"></script>
+	<script type="text/javascript" src="js/iSlider/build/iSlider.plugin.dot.js"></script>
+	<script type="text/javascript" id="show-code">
 
 		var nav_h = document.getElementsByClassName('nav')[0].offsetHeight;
 		document.getElementsByClassName('upon-nav')[0].style.marginBottom = nav_h + "px";
+
+	var list = [
+		{content:'images/banner.png'},
+		{content:'images/banner1.png'},
+		{content:'images/good1.png'}
+	];
+	if(list.length>1){
+	var S = new iSlider(document.getElementById('iSlider-wrapper'), list, {
+        isAutoplay: 1,
+        isLooping: 1,
+        isOverspread: 1,
+        animateTime: 800,
+        plugins: ['dot', 'button']
+    });}else{
+		var S = new iSlider(document.getElementById('iSlider-wrapper'), list, {
+        isAutoplay: 1,
+        isLooping: 1,
+        isOverspread: 1,
+        animateTime: 800,
+   
+    });}
 	</script>
 </body>
 </html>

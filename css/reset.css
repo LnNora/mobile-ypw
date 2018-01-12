@@ -20,3 +20,9 @@ h1{
 p{
 	margin: 0;
 }
+button{
+	background-color: inherit;
+	border: none;
+	font-size: inherit;
+	margin: 0;
+}

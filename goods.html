@@ -36,7 +36,7 @@
 		<div id="tab0" class="good-list">
 
 
-			<div  class="good">
+			<div  class="good" onclick="window.location.href='good-detail.html'">
 				<img src="images/good1.png">
 				<p class="good-name s2">Dark Ale 深艾尔</p>
 				<p class="good-shop s4">21cake</p>
@@ -131,7 +131,7 @@
 			}else if((x-2)%3==0){
 				up.style.color = "#333333";
 				down.style.color = "#333333";
-				
+				moren();
 				x++;
 			}
 		} 
@@ -201,7 +201,32 @@
 	    	 }
 
 	    
-
+//默认排序,只试用于第一页，因为切换TAB后就不会执行下面方法之前的代码了
+      //获取当前tab页
+		var current_defalut;
+		var goods_default;
+		for(var i=0;i<lists_l;i++){
+			var style = window.getComputedStyle(lists[i]);
+			if (style.display=="flex") {
+				current_defalut = lists[i];
+			}
+		}
+		var goods_default = current_defalut.childNodes;
+		/*将当前页的商品放到数组中*/   
+		var arr_default = [];
+		var num_default=0;
+		for(var i=0; i<goods_default.length; i++){
+			if(goods_default[i] instanceof Element){
+	    		arr_default.push(goods_default[i]);
+	    		num_default++;
+	    	}
+	    }
+	    //默认排序方法
+	    function moren(){
+	    	for (var i = 0; i<num_default; i++) {
+	    	current_defalut.appendChild(arr_default[i]); 	
+	    }
+	    }
 
 
 /*运用数组的重排序方法，升序*/

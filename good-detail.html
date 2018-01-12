@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="css/good-detail.css">
+	<title>商品信息</title>
+</head>
+<body>
+	<!--头部-->
+	<div class="opacityDiv" >
+	<header class="s1">
+		<div class="iconfont icon-arrowleft s2 left">返回</div>
+		<div class="center">商品信息</div>
+		<div class="iconfont icon-sangedian right" onclick="window.location.href='mall.html'"></div>
+	</header>
+
+	<!--轮播图-->
+
+	<div class="slideshow">
+		<img src="images/cake-detail.jpg">
+	</div>
+    
+    <div class="main">
+	<!--简介-->
+	<div class="abstract s2 grey">
+		<h1 class="s1">深艾尔</h1>
+		<p>品牌：<span>21Cake</span></p>
+		<p>四种精酿啤酒，搭配酸樱桃果酱，风味独特。淡啤风味顶部发泡层，造型复刻伊朗扎格罗斯山脊线，曾在这里发现，人类最早啤酒酿造遗迹。</p>
+		<p>价格：￥<span class="price" id="unitPrice">268</span></p>
+		<p>优惠活动：<span class="discount">满500减100</span></p>
+	</div>
+	<!--选择规格-->
+	<div class="type">
+		<p>规格</p>
+		<p class="result s2 iconfont">已选择1磅</p>
+	</div>
+	<!--详细介绍-->
+	<div class="details">
+		<h1 class="s1">内容介绍</h1>
+		<img src="images/good-detail.png">
+	</div>
+
+	<!--商品推荐-->
+	<div class="recommendation upon-footer">
+		<h1 class="s1">商品推荐</h1>
+		<div class="hot-goods s2">
+			<div class="hot-good">
+				<img src="images/good2.png">
+				<p>芒果奶油蛋糕</p>
+				<p class="price">￥200.00</p>
+			</div>
+			<div class="hot-good">
+				<img src="images/good2.png">
+				<p>芒果奶油蛋糕</p>
+				<p class="price">￥200.00</p>
+			</div>
+			<div class="hot-good">
+				<img src="images/good2.png">
+				<p>芒果奶油蛋糕</p>
+				<p class="price">￥200.00</p>
+			</div>
+			<div class="hot-good">
+				<img src="images/good2.png">
+				<p>芒果奶油蛋糕</p>
+				<p class="price">￥200.00</p>
+			</div>
+			<div class="hot-good ">
+				<img src="images/good2.png">
+				<p>芒果奶油蛋糕</p>
+				<p class="price">￥200.00</p>
+			</div>
+		</div>
+	</div>
+	</div>
+   <!--底部-->
+	<footer>
+		<a href="" class="s3 iconfont icon-kefu">客服</a>
+		<a href="" class="s3 iconfont icon-cart">购物车</a>
+		<button class="add s1" >加入购物车</button>
+		<button class="buy s1">立即购买</button>
+	</footer>
+	</div>
+
+   <!--选择规格层-->
+   <div class="choose-type">
+   		<div class="selected-good">
+   			<img src="images/good1.png">
+   			<div class="good-text">
+   				<h1 class="s1">深艾尔</h1>
+   				<p class="s2">价格:<span class="price">￥268</span></p>
+   				<div>
+   				<span class="iconfont icon-shuliangxuanze_jianhao subtract"></span>
+   				<input type="text" class="number" value="1">
+   				<span class="iconfont icon-shuliangxuanze_jiahao plus"></span>
+   				</div>
+   			</div>
+   		</div>
+   		<div class="good-type">
+   			<h1 class="s1">规格</h1>
+   			<ul class="types s2">
+   				<li class="size">1磅（13CM*13CM）</li>
+   				<li class="size">2磅（16CM*16CM）</li>
+   				<li class="size">3磅（19CM*19CM）</li>
+   			</ul>
+   		</div>
+   		<div class="footer">
+   			<p class="account">合计：￥<span id="total"></span></p>
+			<button class="add s1" id="add1">加入购物车</button>
+			<button class="buy s1" id="buy1" onclick="window.location.href='mall-order-confirm.html'">确定</button>
+   		</div>
+   </div>
+   <script type="text/javascript">
+   var opacityDiv = document.getElementsByClassName('opacityDiv')[0];
+   var chooseType = document.getElementsByClassName('choose-type')[0];
+   var type = document.getElementsByClassName('type')[0];
+   var add =  document.getElementsByClassName('add')[0];
+   var add1 = document.getElementById('add1');
+   var buy =  document.getElementsByClassName('buy')[0];
+   var buy1 = document.getElementById('buy1');
+   var plus =  document.getElementsByClassName('plus')[0];
+   var subtract =  document.getElementsByClassName('subtract')[0];
+   var number =  document.getElementsByClassName('number')[0];
+   var total = document.getElementById('total');
+   var price = document.getElementById('unitPrice').innerHTML;
+   var allSize = document.getElementsByClassName('size');
+   total.innerHTML = price;
+   //定义禁止冒泡的方法
+    var stop = function(e){
+		              e.stopPropagation();
+					  }
+   //点击选择规格，显示规格选择层
+   	function showChooseType(){
+   		buy1.style.width = "33%";
+   		add1.style.visibility = "visible";
+   		if(chooseType.style.display==""){
+   		chooseType.style.display="block";
+   		opacityDiv.style.filter = "opacity(40%)";}else{
+   			chooseType.style.display="";
+   		opacityDiv.style.filter = "opacity(100%)";
+   		}
+   	}
+   	//点击规格选择层外的区域，收起规格选择层
+   	function hiddenChooseType(){
+   		if(chooseType.style.display=="block"){
+   		chooseType.style.display="";
+   		opacityDiv.style.filter = "opacity(100%)";}
+   	}
+   	type.addEventListener("click",showChooseType,false);
+    type.addEventListener("click",stop,false);
+    opacityDiv.addEventListener("click",hiddenChooseType,false);
+   
+   //选择数量，加号
+   function increase(){
+   	var goodNumber = number.value;
+   	goodNumber++;
+   	number.value = goodNumber;
+    total.innerHTML =  price*goodNumber;
+   }
+
+   //选择数量，减号
+   function decrease(){
+   	var goodNumber = number.value;
+   	if(goodNumber>1){
+   	goodNumber--;
+   	number.value = goodNumber;
+   total.innerHTML =  price*goodNumber;}
+   }
+   plus.addEventListener('click',increase,false);
+   subtract.addEventListener('click',decrease,false);
+
+   //选择规格
+   for(var i=0;i<allSize.length;i++){
+   	allSize[i].addEventListener('click',chooseSize,false);
+   }
+   function chooseSize(event){
+   	var x = event.target;
+   	for(var i=0;i<allSize.length;i++){
+   	allSize[i].style.backgroundColor = "inherit";
+   	allSize[i].style.color = "inherit";
+   }
+   x.style.backgroundColor = "#d43c33";
+   x.style.color = "white";
+   }
+
+   //选择加入购物车或立即购买
+   function hideAdd(){
+   	add1.style.visibility = "hidden";
+   	buy1.style.width = "50%";
+   	buy1.style.flexShrink = "0";
+   }
+   add.addEventListener("click",showChooseType,false);
+   add.addEventListener("click",stop,false);
+   buy.addEventListener("click",showChooseType,false);
+   buy.addEventListener("click",stop,false);
+   add.addEventListener('click',hideAdd,false);
+   buy.addEventListener('click',hideAdd,false);
+   
+   </script>
+</body>
+</html>

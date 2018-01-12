@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" type="text/css" href="css/classification.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
@@ -10,60 +11,58 @@
     <title>商品分类</title>
 
     <style type="text/css">
-        .test2{border: solid 1px;}
+       
     </style>
 </head>
 <body>
-    <!--头部
+    <!--头部-->
     <header class="s1">
         <div class="iconfont icon-arrowleft s2 left">返回</div>
         <div class="center">进口蛋糕</div>
         <div class="iconfont icon-home right" onclick="window.location.href='mall.html'"></div>
-    </header>-->
+    </header>
     <!--主要内容-->
-    <div class="main s3  upon-nav">
-    <ul class="classification1">
-        <li onclick="t()">点我</li>
-        <li class="fruit">新鲜水果</li>
-        <li class="cakes">进口蛋糕</li>
-        <li class="flowers">每周一花</li>
-        <li class="wine">红酒饮料</li>
-        <li>粮油干货</li>
-        <li>保健滋补</li>
-        <li>进口专区</li>
-        <li>电影周边</li>
-        <li>电影周边</li>
-        <li>电影周边</li>
-        <li>电影周边</li>
-        <li>电影周边</li>
+    <div class="main s3  upon-nav blow-header">
+    <ul class="class1-l">
+        <!--<li onclick="t()">点我</li>-->
+        <li class="class1" data-id="0">新鲜水果</li>
+        <li class="class1" data-id="1">进口蛋糕</li>
+        <li class="class1" data-id="2">每周一花</li>
+        <li class="class1" data-id="3">红酒饮料</li>
+        <li class="class1" data-id="4">粮油干货</li>
+        <li class="class1" data-id="5">保健滋补</li>
+        <li class="class1" data-id="6">进口专区</li>
+
+    
+   
     </ul>
-    <div class="classification2">
+    <div class="class2-l upon-nav">
         
-        <div class="fruit test2">
-            <h1 class="s2">新鲜水果</h1>
+        <div class="class2 " data-id2="0">
+            <h1 class="s2" >人文社交</h1>
             <ul>
-                <li><img src="images/c1.png" onclick="window.location.href='goods.html'"><span class="s3">进口直供</span></li>
-                <li><img src="images/c2.png"><span class="s3">绿优鲜</span></li>
-                <li><img src="images/c3.png"><span class="s3">云南水果</span></li>
-                <li><img src="images/c4.png"><span class="s3">海南水果</span></li>
-                <li><img src="images/c5.png"><span class="s3">台湾水果</span></li>
+                <li><img src="images/京东图书1.png" onclick="window.location.href='goods.html'"><span class="s3">计算机科学与技术</span></li>
+                <li><img src="images/京东图书2.png"><span class="s3">文化</span></li>
+                <li><img src="images/京东图书3.png"><span class="s3">社会科学</span></li>
+                <li><img src="images/京东图书4.png"><span class="s3">法律</span></li>
+                <li><img src="images/京东图书5.png"><span class="s3">国学/古籍</span></li>
             </ul>
         </div>
 
         
-        <div class="cakes test2">
+        <div class="class2" data-id2="1">
             <h1 class="s2">进口蛋糕</h1>
             <ul>
-                <li><img src="images/c1.png" onclick="window.location.href='goods.html'"><span class="s3">进口直供</span></li>
-                <li><img src="images/c2.png"><span class="s3">绿优鲜</span></li>
-                <li><img src="images/c3.png"><span class="s3">云南水果</span></li>
-                <li><img src="images/c4.png"><span class="s3">海南水果</span></li>
-                <li><img src="images/c5.png"><span class="s3">台湾水果</span></li>
+                <li><img src="images/cake1.png" onclick="window.location.href='goods.html'" align="middle"><span class="s3">进口直供</span></li>
+                <li><img src="images/good1.png" align="middle"><span class="s3">绿优鲜</span></li>
+                <li><img src="images/good2.png" align="middle"><span class="s3">云南水果</span></li>
+                <li><img src="images/good3.png" align="middle"><span class="s3">海南水果</span></li>
+                <li><img src="images/good4.png" align="middle"><span class="s3">台湾水果</span></li>
             </ul>
         </div>
 
            
-        <div class="flowers test2">
+        <div class="class2" data-id2="2">
             <h1 class="s2">每周一花</h1>
             <ul>
                 <li><img src="images/c1.png" onclick="window.location.href='goods.html'"><span class="s3">进口直供</span></li>
@@ -74,7 +73,7 @@
             </ul>
         </div>
 
-        <div class="wine test2">
+        <div class="class2" data-id2="3">
             <h1 class="s2">红酒饮料</h1>
             <ul>
                 <li><img src="images/c1.png" onclick="window.location.href='goods.html'"><span class="s3">进口直供</span></li>
@@ -84,6 +83,40 @@
                 <li><img src="images/c5.png"><span class="s3">台湾水果</span></li>
             </ul>
         </div>
+
+         <div class="class2" data-id2="4">
+            <h1 class="s2">粮油干货</h1>
+            <ul>
+                <li><img src="images/c1.png" onclick="window.location.href='goods.html'"><span class="s3">进口直供</span></li>
+                <li><img src="images/c2.png"><span class="s3">绿优鲜</span></li>
+                <li><img src="images/c3.png"><span class="s3">云南水果</span></li>
+                <li><img src="images/c4.png"><span class="s3">海南水果</span></li>
+                <li><img src="images/c5.png"><span class="s3">台湾水果</span></li>
+            </ul>
+        </div>
+
+        <div class="class2" data-id2="5">
+            <h1 class="s2">保健滋补</h1>
+            <ul>
+                <li><img src="images/c1.png" onclick="window.location.href='goods.html'"><span class="s3">进口直供</span></li>
+                <li><img src="images/c2.png"><span class="s3">绿优鲜</span></li>
+                <li><img src="images/c3.png"><span class="s3">云南水果</span></li>
+                <li><img src="images/c4.png"><span class="s3">海南水果</span></li>
+                <li><img src="images/c5.png"><span class="s3">台湾水果</span></li>
+            </ul>
+        </div>
+
+        <div class="class2" data-id2="6">
+            <h1 class="s2">进口专区</h1>
+            <ul>
+                <li><img src="images/c1.png" onclick="window.location.href='goods.html'"><span class="s3">进口直供</span></li>
+                <li><img src="images/c2.png"><span class="s3">绿优鲜</span></li>
+                <li><img src="images/c3.png"><span class="s3">云南水果</span></li>
+                <li><img src="images/c4.png"><span class="s3">海南水果</span></li>
+                <li><img src="images/c5.png"><span class="s3">台湾水果</span></li>
+            </ul>
+        </div>
+		
     </div>
     </div>
     <!--底部-->
@@ -97,28 +130,135 @@
     </div>
 
     <script type="text/javascript">
+    
 
         var nav_h = document.getElementsByClassName('nav')[0].offsetHeight;
         document.getElementsByClassName('upon-nav')[0].style.marginBottom = nav_h + "px";
 
 
+/*滑动右边的二级分类时，达到某个位置，自动选中对应一级分类，改变样式*/    
+        var class1s = document.getElementsByClassName('class1');
+        var class2s = document.getElementsByClassName('class2');
+        var class2L = document.getElementsByClassName('class2-l')[0];
+        var class1L = document.getElementsByClassName('class1-l')[0];
+        var class2Id;
+        var positionTop;
+        
+        /*为每一个二级分类添加事件*/
+        for(var i=0;i<class2s.length;i++){
+            class2s[i].addEventListener('touchmove',getPosition,true);
+        }
 
-        var classification1 = document.getElementsByClassName('classification1')[0];
-        var classification2 = document.getElementsByClassName('classification2')[0];
-        var classes = document.getElementsByClassName('2');
+        /*事件逻辑：遍历div，获取它们离每个离视窗顶部的距离，判断该div是否在规定
+                    区域内，如果是，那么将左边全部样式设为默认，将对应该div的那个样式设为字体红色有左边框*/
+        function getPosition(event){
+            for(var i=0;i<class2s.length;i++){
+                positionTop=class2s[i].getBoundingClientRect().top;
+                class2Id=class2s[i].dataset.id2;
+                if(0<positionTop&&positionTop<=80){
+                    for(var j=0;j<class1s.length;j++){
+                        class1s[j].style.border="none";
+                        class1s[j].style.color="inherit";
+                        class1s[j].style.backgroundColor="inherit";
+                     }
+                class1s[class2Id].style.borderLeft="solid 1px #d43c33";
+                class1s[class2Id].style.color="#d43c33";
+                class1s[class2Id].style.backgroundColor="white";
+                //如果对应的大分类由于滚动，不在视线范围内，则滑动左边至能看见它的距离
+                var sTop2;
+                if(class1s[class2Id].getBoundingClientRect().top<44||class1s[class2Id].getBoundingClientRect().top>584){
+                     for(var j=0;j<class2Id-1;j++){
+                        sTop2+=class1s[class2Id].offsetHeight;
+                
+                     }
+                    class1L.scrollTop = sTop2;                    
+                }
+                }
+            }
+            //如果滚动条已经滑到底部了，那么选中最后一个大分类
+            var last = class2s[i-1].getBoundingClientRect().top;
+            if(class2L.scrollTop+class2L.clientHeight==class2L.scrollHeight){
+                class1s[i-2].style.border="none";
+                class1s[i-2].style.color="inherit";
+                class1s[i-2].style.backgroundColor="inherit";
+                class1s[i-1].style.borderLeft="solid 1px #d43c33";
+                class1s[i-1].style.color="#d43c33";
+                class1s[i-1].style.backgroundColor="white";
+            }
        
-        /*for (var i = classes.length - 1; i >= 0; i--) {
-            classes[i].addEventListener("touchmove",t,false);
-        }*/
+        }
+        
+/*点击大分类时，改变二级分类位置*/
+        //为每个大分类添加事件
+        for(var i=0;i<class1s.length;i++){
+            class1s[i].addEventListener('click',changePosition,false);
+        }
 
-        function t(){
-        var test = classification2.getElementsByClassName('wine')[0].offsetTop;
-    
-        classification1.getElementsByClassName('wine')[0].style.color = "blue";
-        alert(test);
+        //改变二级分类的事件
+        function changePosition(){
+            var sTop=0;
+            var ev = event.target;
+            var evId = ev.dataset.id;
+            for(var i=0;i<class1s.length;i++){
+                        class1s[i].style.border="none";
+                        class1s[i].style.color="inherit";
+                        class1s[i].style.backgroundColor="inherit";
+                     }
+            ev.style.borderLeft="solid 1px #d43c33";
+            ev.style.color="#d43c33";
+            ev.style.backgroundColor="white";
+            for(var i=0;i<evId;i++){
+                sTop+=class2s[evId].offsetHeight;
+                
+            }
+            class2L.scrollTop = sTop;
+        
         }
 
 
+
+//以下是一个尝试
+       /*
+        var class1L = document.getElementsByClassName('class1-l')[0];
+        var class1Id;
+        var positionTop1;
+
+        /*为每一个一级分类添加事件
+            for(var i=0;i<class1s.length;i++){
+            class1s[i].addEventListener('touchmove',getPosition1,true);
+        }
+
+
+        /*事件逻辑：遍历li，获取它们离每个离视窗顶部的距离，判断该li是否在规定
+                    区域内，如果是，那么改变该li的样式，并改变右边div滚动距离，使跟该li相对应的div在视窗顶部*/
+        /*function getPosition1(event){
+            var sTop1=0;
+            for(var i=0;i<class1s.length;i++){
+                positionTop1=class1s[i].getBoundingClientRect().top;
+                class1Id=class1s[i].dataset.id;
+                if(0<positionTop1&&positionTop1<=80){
+                    for(var i=0;i<class1s.length;i++){
+                        class1s[i].style.border="none";
+                        class1s[i].style.color="inherit";
+                        class1s[i].style.backgroundColor="inherit";
+                     }
+                class1s[class1Id].style.borderLeft="solid 1px #d43c33";
+                class1s[class1Id].style.color="#d43c33";
+                class1s[class1Id].style.backgroundColor="white";
+
+                for(var j=0;j<class1Id;j++){
+                sTop1+=class2s[class1Id].offsetHeight;
+                
+            }
+               class2L.scrollTop = sTop1;
+                }
+            }
+        
+        }*/
         </script>
+
+
+
 </body>
 </html>
+
