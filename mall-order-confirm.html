@@ -119,7 +119,8 @@
 		var detail = document.getElementsByClassName('detail')[0];
 		var orderDtails = document.getElementsByClassName('order-detail');
 		var classVal = detail.getAttribute('class');
-		function unfold(){
+		function unfold(eve){
+			
 			if(items.style.display==""){
 				items.style.display="block";
 				classVal = classVal.replace("arrowright","arrowdown");

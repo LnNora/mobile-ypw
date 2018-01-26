@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/font_454880_kqniatazcwb138fr.css">
+	<title>逸票网</title>
+	<style type="text/css">
+		header{
+			background-color: inherit;
+			color: black;
+			justify-content: space-between;
+			padding: 0.719rem 0.688rem;
+		    font-weight: bold;}
+		.header-2{
+			display: flex;
+			align-items: center;
+		}
+		.icon-dingwei,.icon-addNew{font-size: 1.094rem;font-weight: bold;}
+		.icon-addNew{font-size: 1.4rem;margin-left: 1.25rem;}
+		.s1{font-size: 1.125rem;}
+
+		/*滚动*/
+		#iSlider-wrapper{
+			height: 9.375rem;
+			width: 100%;
+			overflow: hidden;
+			position: relative;
+
+
+		}
+		#iSlider-wrapper ul{
+			overflow: hidden;
+			height: 100%;
+			width: 100%;
+
+		}
+		.islider-pic{
+			width: 100%;height: 100%;
+			position: absolute;
+			overflow: hidden;
+		}
+		.islider-pic img{
+			max-width: 100%;
+			max-height: 100%;
+			margin: 0 0.688rem;
+			box-sizing: border-box;
+		}
+
+
+		.islider-dot.active{
+    background-color: #d43c33;
+  }
+  .islider-dot-wrap{
+  	box-sizing: border-box;
+  	position: absolute;
+  	top: 10.5rem;
+  	width: 100%;
+  	text-align: center;
+  }
+  .islider-dot {
+    position: relative;
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    list-style: none;
+    margin: 5px;
+    background-color: white;
+}
+	</style>
+</head>
+<body>
+	<header>
+		<h1 class="s1">首页</h1>
+		<div class="header-2">
+			<div class="header-2-1 iconfont icon-dingwei"></div>
+			<div class="header-2-2 iconfont icon-addNew"></div>
+		</div>
+	</header>
+	<div class="banner blow-header" id="iSlider-wrapper">
+
+	<script type="text/javascript" src="js/iSlider/build/iSlider.min.js"></script>
+	<script type="text/javascript" src="js/iSlider/build/iSlider.plugin.dot.js"></script>
+	<script type="text/javascript">
+		var list = [
+		{content:'images/banner.png'},
+		{content:'images/banner1.png'},
+		{content:'images/good1.png'}
+	];
+	if(list.length>1){
+	var S = new iSlider(document.getElementById('iSlider-wrapper'), list, {
+        isAutoplay: 1,
+        isLooping: 1,
+        isOverspread: 1,
+        animateTime: 800,
+        plugins: ['dot', 'button']
+    });}else{
+		var S = new iSlider(document.getElementById('iSlider-wrapper'), list, {
+        isAutoplay: 1,
+        isLooping: 1,
+        isOverspread: 1,
+        animateTime: 800,
+   
+    });}
+	</script>
+</body>
+</html>
