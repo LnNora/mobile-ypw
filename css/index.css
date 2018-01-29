@@ -5,8 +5,8 @@ body{
 header,.nav-outer,.banner,.hot-wrapper{background-color: white;}
 /*header部分*/
 /*banner*/
-#iSlider-wrapper{
-	z-index: -1;
+header{
+	z-index: 2;
 }
 /*导航*/
 .nav-outer{
