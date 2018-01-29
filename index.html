@@ -5,11 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/font_454880_kqniatazcwb138fr.css">
 	<title>逸票网</title>
 	<style type="text/css">
 		header{
-			background-color: inherit;
 			color: black;
 			justify-content: space-between;
 			padding: 0.719rem 0.688rem;
@@ -21,7 +21,8 @@
 		.icon-dingwei,.icon-addNew{font-size: 1.094rem;font-weight: bold;}
 		.icon-addNew{font-size: 1.4rem;margin-left: 1.25rem;}
 		.s1{font-size: 1.125rem;}
-
+		.s2{font-size: 0.813rem;}
+		.s3{font-size: 0.719rem;}
 		/*滚动*/
 		#iSlider-wrapper{
 			height: 9.375rem;
@@ -38,9 +39,11 @@
 
 		}
 		.islider-pic{
-			width: 100%;height: 100%;
+			margin: 0 0.688rem;
 			position: absolute;
 			overflow: hidden;
+			border-radius: 5px;
+			border: solid 1px #e8e8e8;
 		}
 		.islider-pic img{
 			max-width: 100%;
@@ -80,15 +83,145 @@
 			<div class="header-2-2 iconfont icon-addNew"></div>
 		</div>
 	</header>
-	<div class="banner blow-header" id="iSlider-wrapper">
-
+	<div class="banner blow-header" id="iSlider-wrapper"></div>
+	<div class="nav-outer">
+		<ul>
+			<li class="nav-item s3" onclick="gotoPage('')">
+				<img src="images/nav-item1.png">
+				<span>精彩电影</span>
+			</li>
+			<li class="nav-item s3" onclick="gotoPage('')">
+				<img src="images/nav-item2.png">
+				<span>图书影像</span>
+			</li><li class="nav-item s3" onclick="gotoPage('')">
+				<img src="images/nav-item3.png">
+				<span>员工福利</span>
+			</li><li class="nav-item s3" onclick="gotoPage('')">
+				<img src="images/nav-item4.png">
+				<span>线下门店</span>
+			</li><li class="nav-item s3" onclick="gotoPage('')">
+				<img src="images/nav-item5.png">
+				<span>运动健身</span>
+			</li><li class="nav-item s3" onclick="gotoPage('')">
+				<img src="images/nav-item6.png">
+				<span>文化演出</span>
+			</li><li class="nav-item s3" onclick="gotoPage('')">
+				<img src="images/nav-item7.png">
+				<span>温泉度假</span>
+			</li><li class="nav-item s3" onclick="gotoPage('')">
+				<img src="images/nav-item8.png">
+				<span>特色商城</span>
+			</li>
+		</ul>
+	</div>
+	<!--电影-->
+	<div class="movie-wrapper hot-wrapper">
+		<div class="title">
+			<h1 class="s1">热映电影</h1>
+			<p class="s3 more ">显示全部<span class="iconfont icon-youjiantou"></span></p>
+		</div>
+		<ul class="movie-outer hot-outer">
+				<li onclick="gotoPage('')" class="movie-item hot-item">
+					<img src="images/movie-item1.png">
+					<p class="name s2">雷神3：诸神黄昏</p>
+					<div class="grade"><div class="star"><p class="grey-star"></p></div><span>8.2</span></div>
+				</li>
+				<li onclick="gotoPage('')" class="movie-item hot-item">
+					<img src="images/movie-item2.png">
+					<p class="name s2">追梦环游记</p>
+					<div class="grade"><div class="star"><p class="grey-star"></p></div><span>8.2</span></div>
+				</li>
+				<li onclick="gotoPage('')" class="movie-item hot-item">
+					<img src="images/movie-item3.png">
+					<p class="name s2">奇门遁甲</p>
+					<div class="grade"><div class="star"><p class="grey-star"></p></div><span>8.2</span></div>
+				</li>
+				<li onclick="gotoPage('')" class="movie-item hot-item">
+					<img src="images/movie-item1.png">
+					<p class="name s2">芳华</p>
+					<div class="grade"><div class="star"><p class="grey-star"></p></div><span>8.2</span></div>
+				</li>
+			</ul>
+	</div>
+	<!--演出-->
+	<div class="show-wrapper hot-wrapper">
+		<div class="title">
+			<h1 class="s1">热门演出</h1>
+			<p class="s3 more ">显示全部<span class="iconfont icon-youjiantou"></span></p>
+		</div>
+		<ul class="show-outer hot-outer">
+				<li onclick="gotoPage('')" class="show-item hot-item">
+					<img src="images/show-item1.png">
+					<p class="name s2">红花会贝贝：丛林法则</p>
+					<p class="price">￥<span>45.00</span></p>
+				</li>
+				<li onclick="gotoPage('')" class="show-item hot-item">
+					<img src="images/show-item2.png">
+					<p class="name s2">最后的莫西干人</p>
+					<p class="price">￥<span>45.00</span></p>
+				</li>
+				<li onclick="gotoPage('')" class="show-item hot-item">
+					<img src="images/show-item3.png">
+					<p class="name s2">古筝音乐会</p>
+					<p class="price">￥<span>45.00</span></p>
+				</li>
+				<li onclick="gotoPage('')" class="show-item hot-item">
+					<img src="images/show-item1.png">
+					<p class="name s2">芳华</p>
+					<p class="price">￥<span>45.00</span></p>
+				</li>
+			</ul>
+	</div>
+	<!--图书-->
+	<div class="book-wrapper hot-wrapper">
+		<div class="title">
+			<h1 class="s1">畅销图书</h1>
+			<p class="s3 more ">显示全部<span class="iconfont icon-youjiantou"></span></p>
+		</div>
+		<ul class="book-outer-outer hot-outer">
+				<li onclick="gotoPage('')" class="book-item hot-item">
+					<img src="images/book-item1.png">
+					<p class="name s2">解忧杂货铺</p>
+					<p class="price">￥<span>45.00</span></p>
+				</li>
+				<li onclick="gotoPage('')" class="book-item hot-item">
+					<img src="images/book-item2.png">
+					<p class="name s2">销售就是玩</p>
+					<p class="price">￥<span>45.00</span></p>
+				</li>
+				<li onclick="gotoPage('')" class="book-item hot-item">
+					<img src="images/book-item3.png">
+					<p class="name s2">一人之上</p>
+					<p class="price">￥<span>45.00</span></p>
+				</li>
+				<li onclick="gotoPage('')" class="book-item hot-item">
+					<img src="images/book-item1.png">
+					<p class="name s2">芳华</p>
+					<p class="price">￥<span>45.00</span></p>
+				</li>
+			</ul>
+	</div>
+	<!--商城精选-->
+	<div class="mall-wrapper hot-wrapper">
+		<div class="title">
+			<h1 class="s1">商城精选</h1>
+			<p class="s3 more ">更多<span class="iconfont icon-youjiantou"></span></p>
+		</div>
+		<ul class="hot-outer">
+			<li class="s2 mall-item">
+				<img src="images/mall-item1.png">
+				<div class="good-info"><p class="hot-name ">给落雪圣诞的暖心礼物</p><p class="good-price price">￥<span>100</span></p></div>
+				<p class="good-sketch">让它们陪你过一个难忘的圣诞节</p>
+			</li>
+		</ul>
+	</div>
 	<script type="text/javascript" src="js/iSlider/build/iSlider.min.js"></script>
 	<script type="text/javascript" src="js/iSlider/build/iSlider.plugin.dot.js"></script>
 	<script type="text/javascript">
 		var list = [
-		{content:'images/banner.png'},
+		{content:'images/banner2.png'},
 		{content:'images/banner1.png'},
-		{content:'images/good1.png'}
+		{content:'images/banner.png'}
 	];
 	if(list.length>1){
 	var S = new iSlider(document.getElementById('iSlider-wrapper'), list, {
