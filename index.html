@@ -23,9 +23,12 @@
 		.s1{font-size: 1.125rem;}
 		.s2{font-size: 0.813rem;}
 		.s3{font-size: 0.719rem;}
+		.s4{font-size: 0.625rem;}/*20px*/
+		.grey{color: grey;}
 		/*滚动*/
+		
 		#iSlider-wrapper{
-			height: 9.375rem;
+			height: 11.313rem;
 			width: 100%;
 			overflow: hidden;
 			position: relative;
@@ -33,13 +36,16 @@
 
 		}
 		#iSlider-wrapper ul{
-			overflow: hidden;
+			/*overflow: hidden;*/
 			height: 100%;
 			width: 100%;
+			padding:0 0.688rem;
+			display: flex;
+			align-items:center;
 
 		}
-		.islider-pic{
-			margin: 0 0.688rem;
+		.islider-pic{width: 93.6%;
+			
 			position: absolute;
 			overflow: hidden;
 			border-radius: 5px;
@@ -56,10 +62,11 @@
 		.islider-dot.active{
     background-color: #d43c33;
   }
+
   .islider-dot-wrap{
   	box-sizing: border-box;
   	position: absolute;
-  	top: 10.5rem;
+  	top: 12.5rem;
   	width: 100%;
   	text-align: center;
   }
@@ -73,7 +80,13 @@
     margin: 5px;
     background-color: white;
 }
+
+.islider-next{
+	
+}
+
 	</style>
+
 </head>
 <body>
 	<header>
@@ -108,14 +121,14 @@
 			</li><li class="nav-item s3" onclick="gotoPage('')">
 				<img src="images/nav-item7.png">
 				<span>温泉度假</span>
-			</li><li class="nav-item s3" onclick="gotoPage('')">
+			</li><li class="nav-item s3" onclick="window.location.href='mall.html'">
 				<img src="images/nav-item8.png">
 				<span>特色商城</span>
 			</li>
 		</ul>
 	</div>
 	<!--电影-->
-	<div class="movie-wrapper hot-wrapper">
+	<div class="movie-wrapper hot-wrapper module">
 		<div class="title">
 			<h1 class="s1">热映电影</h1>
 			<p class="s3 more ">显示全部<span class="iconfont icon-youjiantou"></span></p>
@@ -144,7 +157,7 @@
 			</ul>
 	</div>
 	<!--演出-->
-	<div class="show-wrapper hot-wrapper">
+	<div class="show-wrapper hot-wrapper module">
 		<div class="title">
 			<h1 class="s1">热门演出</h1>
 			<p class="s3 more ">显示全部<span class="iconfont icon-youjiantou"></span></p>
@@ -173,7 +186,7 @@
 			</ul>
 	</div>
 	<!--图书-->
-	<div class="book-wrapper hot-wrapper">
+	<div class="book-wrapper hot-wrapper module">
 		<div class="title">
 			<h1 class="s1">畅销图书</h1>
 			<p class="s3 more ">显示全部<span class="iconfont icon-youjiantou"></span></p>
@@ -202,7 +215,7 @@
 			</ul>
 	</div>
 	<!--商城精选-->
-	<div class="mall-wrapper hot-wrapper">
+	<div class="mall-wrapper hot-wrapper module">
 		<div class="title">
 			<h1 class="s1">商城精选</h1>
 			<p class="s3 more ">更多<span class="iconfont icon-youjiantou"></span></p>
@@ -213,15 +226,131 @@
 				<div class="good-info"><p class="hot-name ">给落雪圣诞的暖心礼物</p><p class="good-price price">￥<span>100</span></p></div>
 				<p class="good-sketch">让它们陪你过一个难忘的圣诞节</p>
 			</li>
+			<li class="s2 mall-item">
+				<img src="images/mall-item1.png">
+				<div class="good-info"><p class="hot-name ">给落雪圣诞的暖心礼物</p><p class="good-price price">￥<span>100</span></p></div>
+				<p class="good-sketch">让它们陪你过一个难忘的圣诞节</p>
+			</li>
+		</ul>
+	</div>
+	<!--猜你喜欢-->
+	<div class="guess-wrapper module">
+		<div class="title">
+			<h1 class="s1">猜你喜欢</h1>
+		</div>
+		<ul class="guess-outter">
+				<li class="guess-item">
+					<p class="guess-name s2">家居家纺</p>
+					<img src="images/guess-item1.png">
+				</li>
+				<li class="guess-item">
+					<p class="guess-name s2">日用百货</p>
+					<img src="images/guess-item2.png">
+				</li>
+				<li class="guess-item last">
+					<p class="guess-name s2">休闲零食</p>
+					<img src="images/guess-item3.png">
+				</li>
+				<li class="line"></li>
+				<li class="guess-item">
+					<p class="guess-name s2">生鲜水果</p>
+					<img src="images/guess-item4.png">
+				</li>
+				<li class="guess-item">
+					<p class="guess-name s2">养生滋补</p>
+					<img src="images/guess-item5.png">
+				</li>
+				<li class="guess-item last">
+					<p class="guess-name s2">米面粮油</p>
+					<img src="images/guess-item6.png">
+				</li>
+			</ul>
+	</div>
+	<!--限时抢购-->
+	<div class="limit-wrapper module">
+		<div class="limit-title">
+			<h1 class="s1">限时抢购</h1>
+			<p class="countdown"><span class="d"></span>:<span class="h"></span>:<span class="m"></span>:<span class="s"></span></p>
+		</div>
+		<ul class="limit-outer hot-outer">
+				<li onclick="gotoPage('')" class="limit-item">
+					<img src="images/limit-item1.png">
+					<p class="name s2">多效修复三件套</p>
+					<p class="price">￥<span>45.00</span></p>
+				</li>
+				<li onclick="gotoPage('')" class="limit-item">
+					<img src="images/limit-item2.png">
+					<p class="name s2">西伯利亚K5游戏</p>
+					<p class="price">￥<span>45.00</span></p>
+				</li>
+				<li onclick="gotoPage('')" class="limit-item">
+					<img src="images/limit-item3.png">
+					<p class="name s2">圣芝红酒法国波旁</p>
+					<p class="price">￥<span>45.00</span></p>
+				</li>
+				<li onclick="gotoPage('')" class="book-item limit-item">
+					<img src="images/limit-item1.png">
+					<p class="name s2">芳华</p>
+					<p class="price">￥<span>45.00</span></p>
+				</li>
+			</ul>
+	</div>
+	<!--热门场馆-->
+	<div class="sport-wrapper hot-wrapper sport module">
+		<div class="title">
+			<h1 class="s1">热门场馆</h1>
+			<p class="s3 more ">更多<span class="iconfont icon-youjiantou"></span></p>
+		</div>
+		<ul class="sport-outer">
+			<li class="s2 sport-item s2">
+				<img src="images/sport-item1.png">
+				<div class="sport-info"><p>凤凰湾半山俱乐部羽毛球馆</p><span class="s3">在线预订</span></div>
+				<p class="grey">营业时间：<span>09:00-00:00</span></p>
+				<p class="grey">场馆地址：<span>江北区石马河宏帆路28号宏帆八中附近</span></p>
+			</li>
+			<li class="s2 mall-item">
+				
+			</li>
+		</ul>
+	</div>
+
+	<!--温泉-->
+	<div class="spring-wrapper hot-wrapper sport module">
+		<div class="title">
+			<h1 class="s1">优选温泉</h1>
+			<p class="s3 more ">更多<span class="iconfont icon-youjiantou"></span></p>
+		</div>
+		<ul class="sport-outer">
+			<li class="s2 sport-item s2">
+				<img src="images/sport-item2.png">
+				<div class="sport-info"><p>龙凤桥恒温游泳馆</p><span class="s3">在线预订</span></div>
+				<p class="grey">营业时间：<span>09:00-00:00</span></p>
+				<p class="grey">场馆地址：<span>江北区龙凤一村80号</span></p>
+			</li>
+			<li class="s2 mall-item">
+				
+			</li>
+		</ul>
+	</div>
+
+	<!--底部导航-->
+	<div class="nav">
+		<ul>
+			<li class="nav-list s3" onclick="window.location.href='mall.html'"><span class="iconfont icon-caidanshouye s1"></span>首页</li>
+			<li class="nav-list s3" onclick="window.location.href='classification.html'"><span class="iconfont icon-31youhuiquan s1"></span>卡券</li>
+			<li class="nav-list s3"><span class="iconfont icon-tubiao- s1"></span>活动</li>
+			<li class="nav-list s3"><span class="iconfont icon-wode s1"></span>我的</li>
 		</ul>
 	</div>
 	<script type="text/javascript" src="js/iSlider/build/iSlider.min.js"></script>
 	<script type="text/javascript" src="js/iSlider/build/iSlider.plugin.dot.js"></script>
 	<script type="text/javascript">
-		var list = [
+
+	/*轮播*/
+	var list = [
 		{content:'images/banner2.png'},
-		{content:'images/banner1.png'},
-		{content:'images/banner.png'}
+		{content:'images/index-banner1.png'},
+		{content:'images/index-banner2.png'}
 	];
 	if(list.length>1){
 	var S = new iSlider(document.getElementById('iSlider-wrapper'), list, {
@@ -238,6 +367,43 @@
         animateTime: 800,
    
     });}
+		var isliderNext = document.getElementsByClassName('islider-next')[0];
+		function t() {
+			isliderNext.style.transform = "translateX(355px)";
+		}
+		t();
+		
+
+	/*倒计时*/
+	var d = document.getElementsByClassName('d')[0];
+	var h = document.getElementsByClassName('h')[0];
+	var m = document.getElementsByClassName('m')[0];
+	var s = document.getElementsByClassName('s')[0];
+
+	function countDown(time){
+		var day=0;
+		var hour=0;
+		var minute=0;
+		var second=0;
+		var transTime;
+    	var timer= setInterval(function(){
+		day = Math.floor(time/(60*60*24));
+		hour = Math.floor(time/(60*60)-day*24);
+		minute = Math.floor(time/60-day*24*60-hour*60);
+		second = Math.floor(time-day*24*60*60-hour*60*60-minute*60);
+		d.innerHTML = day;
+		h.innerHTML = hour;
+		m.innerHTML = minute;
+		s.innerHTML = second;
+		time--;
+		if(time<0){
+			clearInterval(timer);
+		}
+	},1000);
+		}
+
+	countDown(10000);
+    
 	</script>
 </body>
 </html>
