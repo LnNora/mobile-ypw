@@ -76,11 +76,14 @@ header{
 /*字体*/
 @font-face{
 	font-family: pingfang;
+	/*font-family: Microsoft YaHei;*/
 	src:url('font/PingFang Regular.ttf');
 }
 
 body,input{
-	font-family: pingfang;
+	font-family: SimHei;
 }
-
+.webfont-loaded body {
+font-family: pingfang;
+}
 input{font-size: inherit;}

@@ -9,7 +9,9 @@ header{
 	z-index: 2;
 }
 
-
+.price{
+	text-align: left;
+}
 /*导航*/
 .nav-outer{
 	padding-top: 1.375rem;
@@ -32,6 +34,14 @@ header{
 }
 .nav-item img{
 	width: 2.344rem;
+
+}
+/*banner轮播*/
+.islider-active{
+	
+}
+.islider-prev{
+	/*display: none;*/
 
 }
 
@@ -272,6 +282,10 @@ header{
     .spring-wrapper.hot-wrapper{
     	margin-bottom: 3.45rem;
     }
+    .sport-outer{
+    	padding-left:0.688rem;
+    }
+    .spring-wrapper .title{border-top: none;}
 	/*底部导航*/
 	.nav{
 		border-top: solid 1px #e2e2e2;

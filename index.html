@@ -7,6 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="css/common.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/font_454880_kqniatazcwb138fr.css">
+	<script type="text/javascript" src="js/fontfaceobserver-master/fontfaceobserver.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
 	<title>逸票网</title>
 	<style type="text/css">
 		header{
@@ -39,17 +41,19 @@
 				/*overflow: hidden;*/
 				height: 100%;
 				width: 100%;
-				padding:0 0.688rem;
+				/*padding:0 0.688rem;*/
 				display: flex;
 				align-items:center;
 
-			}
-			.islider-pic{width: 93.6%;
 
+			}
+			.islider-pic{width: 100%;
+				
 				position: absolute;
 				overflow: hidden;
 				border-radius: 5px;
 				border: solid 1px #e8e8e8;
+
 			}
 			.islider-pic img{
 				max-width: 100%;
@@ -412,6 +416,7 @@
 	</ul>
 </div>
 <script type="text/javascript" src="js/iSlider/build/iSlider.min.js"></script>
+<script type="text/javascript" src="js/iSlider/build/iSlider.animate.js"></script>
 <script type="text/javascript" src="js/iSlider/build/iSlider.plugin.dot.js"></script>
 <script type="text/javascript">
 
@@ -428,7 +433,8 @@
 			isLooping: 1,
 			isOverspread: 1,
 			animateTime: 800,
-			plugins: ['dot', 'button']
+			animateType: 'flow',
+			/*plugins: ['dot', 'button']*/
 		});}else{
 			var S = new iSlider(document.getElementById('iSlider-wrapper'), list, {
 				isAutoplay: 1,
@@ -437,11 +443,11 @@
 				animateTime: 800,
 
 			});}
-			var isliderNext = document.getElementsByClassName('islider-next')[0];
+			/*var isliderNext = document.getElementsByClassName('islider-next')[0];
 			function t() {
 				isliderNext.style.transform = "translateX(355px)";
 			}
-			t();
+			t();*/
 
 
 			/*倒计时*/
