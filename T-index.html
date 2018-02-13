@@ -142,44 +142,31 @@
 			.islider-next{
 
 			}
-			/*商城轮播图swiper*/
+			/*轮播图swiper*/
 			.swiper-container {background-color: white;
-      			width: 100%;
-      			
-    			}
-    		.swiper1{
-    			height: 11.313rem;
-    			}
-    		.swiper1 .swiper-slide {border-radius: 5px;overflow: hidden;margin-left: 0.688rem;
-     			 background: #fff;
-      			 width: 58.8%;
-      			 flex-shrink: 0;
+      width: 100%;
+      height: 11.313rem;
+    }
+    .swiper-wrapper{
+    	
+    }
+    .swiper-slide {border-radius: 5px;overflow: hidden;margin-left: 0.688rem;
+      background: #fff;
+      width: 58.8%;
+      flex-shrink: 0;
     
 
       /* Center slide text vertically */
       
-   			 }
+    }
+   
 
-    		.swiper-slide img{
-				width: 100%;
-    		}
-			/*场馆*/
-			.swiper2 .swiper-slide {
-				box-sizing: border-box;
-				width: 93.47%;
-				margin: 0 0.688rem;
-			}
-			.swiper2 .swiper-wrapper{
-				box-sizing: border-box;
-			}
 
-			.swiper-pagination{
-				top: 7.6rem;
-			}
-			.swiper-pagination-bullet-active{
-				background-color: white;
-			}
-			
+
+    .swiper-slide img{
+		width: 100%;
+    }
+
 		</style>
     
 
@@ -329,7 +316,7 @@
 		<h1 class="s1">商城精选</h1>
 		<p class="s3 more ">更多<span class="iconfont icon-youjiantou"></span></p>
 	</div>
-	<div class="swiper-container swiper1">
+	<div class="swiper-container blow-header">
      <div class="swiper-wrapper mall-outer">
      <div class="swiper-slide s2">
      	<img src="images/mall-item1.png">
@@ -352,7 +339,6 @@
       </div>
 	
 </div>
-
 <!--猜你喜欢-->
 <div class="guess-wrapper module">
 	<div class="title">
@@ -421,39 +407,12 @@
 		<h1 class="s1">热门场馆</h1>
 		<p class="s3 more ">更多<span class="iconfont icon-youjiantou"></span></p>
 	</div>
-
-	<div class="swiper-container swiper2">
-     <div class="swiper-wrapper sport-outer">
-     <div class="swiper-slide s2">
-     		<img src="images/sport-item1.png">
-			<div class="sport-info"><p>凤凰湾半山俱乐部羽毛球馆1</p><span class="s3">在线预订</span></div>
-			<p class="grey">营业时间：<span>09:00-00:00</span></p>
-			<p class="grey">场馆地址：<span>江北区石马河宏帆路28号宏帆八中附近</span></p>
-	 </div>
-       <div class="swiper-slide s2">
-     		<img src="images/sport-item1.png">
-			<div class="sport-info"><p>凤凰湾半山俱乐部羽毛球馆2</p><span class="s3">在线预订</span></div>
-			<p class="grey">营业时间：<span>09:00-00:00</span></p>
-			<p class="grey">场馆地址：<span>江北区石马河宏帆路28号宏帆八中附近</span></p>
-	 </div>
-	  <div class="swiper-slide s2">
-     		<img src="images/sport-item1.png">
-			<div class="sport-info"><p>凤凰湾半山俱乐部羽毛球馆3</p><span class="s3">在线预订</span></div>
-			<p class="grey">营业时间：<span>09:00-00:00</span></p>
-			<p class="grey">场馆地址：<span>江北区石马河宏帆路28号宏帆八中附近</span></p>
-	 </div>
-     
-	 
-      </div>
-      <!-- Add Pagination -->
-    <div class="swiper-pagination swiper-pagination3"></div>
-      </div>
-      
-	
-</div>
-	<ul class="">
+	<ul class="sport-outer">
 		<li class="s2 sport-item s2">
-			
+			<img src="images/sport-item1.png">
+			<div class="sport-info"><p>凤凰湾半山俱乐部羽毛球馆</p><span class="s3">在线预订</span></div>
+			<p class="grey">营业时间：<span>09:00-00:00</span></p>
+			<p class="grey">场馆地址：<span>江北区石马河宏帆路28号宏帆八中附近</span></p>
 		</li>
 		<li class="s2 mall-item">
 
@@ -468,27 +427,17 @@
 		<h1 class="s1">优选温泉</h1>
 		<p class="s3 more ">更多<span class="iconfont icon-youjiantou"></span></p>
 	</div>
-	<div class="swiper-container swiper2">
-     <div class="swiper-wrapper sport-outer">
-     <div class="swiper-slide s2">
-     		<img src="images/sport-item2.png">
-			<div class="sport-info"><p>龙凤桥恒温游泳馆1</p><span class="s3">在线预订</span></div>
+	<ul class="sport-outer">
+		<li class="s2 sport-item s2">
+			<img src="images/sport-item2.png">
+			<div class="sport-info"><p>龙凤桥恒温游泳馆</p><span class="s3">在线预订</span></div>
 			<p class="grey">营业时间：<span>09:00-00:00</span></p>
 			<p class="grey">场馆地址：<span>江北区龙凤一村80号</span></p>
-	 </div>
-	 <div class="swiper-slide s2">
-     		<img src="images/sport-item2.png">
-			<div class="sport-info"><p>龙凤桥恒温游泳馆2</p><span class="s3">在线预订</span></div>
-			<p class="grey">营业时间：<span>09:00-00:00</span></p>
-			<p class="grey">场馆地址：<span>江北区龙凤一村80号</span></p>
-	 </div>
-      
-     
-	 
-      </div>
-      <!-- Add Pagination -->
-    <div class="swiper-pagination swiper-pagination3"></div>
-      </div>
+		</li>
+		<li class="s2 mall-item">
+
+		</li>
+	</ul>
 </div>
 
 <!--底部导航-->
@@ -529,24 +478,8 @@
 
 			});}
 	/*轮播swiper*/
-	  var swiper1 = new Swiper('.swiper1', {
+		 var swiper = new Swiper('.swiper-container', {
       slidesPerView: 'auto',
-      spaceBetween: 0,
-      loop:true,
-      loopAdditionalSlides : 1,
-      autoplay:{
-      	stopOnLastSlide:false,
-      	disableOnInteraction:false,
-      	speed:100,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
-
-	  var swiper2 = new Swiper('.swiper2', {
-     slidesPerView: 'auto',
       spaceBetween: 0,
       loop:true,
       loopAdditionalSlides : 1,
@@ -592,7 +525,67 @@
 
 			countDown(10000);
 
-			
+			/*商城滑动*/
+
+/*
+    var mySlide = setInterval(function i(){
+    	var active= document.getElementsByClassName('active')[0];
+    	var next= document.getElementsByClassName('next')[0];
+    	if(next){
+        active.setAttribute("class",active.getAttribute('class').replace('active','pre'));
+        next.setAttribute("class",next.getAttribute('class').replace('next','active'));}
+
+        //var pre = document.getElementsByClassName('pre')[0];
+        //pre.setAttribute("class",pre.getAttribute('class').replace('pre','next'));
+    },5000);*/
+/*
+    var mallOuter = document.getElementsByClassName('mall-outer')[0];
+    mallOuter.addEventListener('touchend',getEnd,false);
+    mallOuter.addEventListener('touchstart',getStart,false);
+    mallOuter.addEventListener('touchmove',slide,false);
+    /*mallOuter.addEventListener('touchmove',function(event){
+    event.preventDefault();//阻止浏览器的默认事件
+});
+var startX=0;
+var endX=0;
+var diffrenceX = 0;
+function getStart(){
+	startX = event.pageX;
+	startY = event.pageY;
+}
+function getEnd(){
+
+	endX = event.pageX;
+	endY = event.pageY;
+	diffrenceX=endX-startX;
+	diffrenceY=endY-startY;
+}
+function slide(){
+	if(diffrenceY<=100&&diffrenceY>=-100){
+		//mallOuter.ontouchstart=function(){
+			//return false;
+		//}
+		event.preventDefault();
+		if(diffrenceX<0){
+			var active= document.getElementsByClassName('active')[0];
+			var next= document.getElementsByClassName('next')[0];
+			if(next){
+				active.setAttribute("class",active.getAttribute('class').replace('active','pre'));
+				next.setAttribute("class",next.getAttribute('class').replace('next','active'));}
+			}else if(diffrenceX>0){
+				var active= document.getElementsByClassName('active')[0];
+				var pre= document.getElementsByClassName('pre')[0];
+				if(pre){
+					active.setAttribute("class",active.getAttribute('class').replace('active','next'));
+					pre.setAttribute("class",pre.getAttribute('class').replace('pre','active'));}
+				}
+			}else{
+				mallOuter.ontouchstart=function(){
+					return true;
+				}
+			}
+		}
+*/
 	</script>
 	<!--滚动-->
 	<script type="text/javascript" src="js/iscroll-master/build/iscroll.js"></script>
