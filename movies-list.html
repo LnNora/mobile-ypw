@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/common1.css">
+	<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/font_454880_s5a0bqx9st9be29.css">
+
+	<link rel="stylesheet" type="text/css" href="js/FullWidthTabs/css/component.css" />
+	<script type="text/javascript" src="js/fontfaceobserver-master/fontfaceobserver.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<title>影片</title>
+	<style type="text/css">
+	html{
+
+	}
+	body{}
+
+		header .center{
+			border: solid 0.5px;
+			border-radius: 2px;
+		}
+		header .center a{
+			display: inline-block;
+			height: 100%;
+		}
+		header .center a span {
+			padding: 0 0.6rem;
+			display: inline-block;
+
+
+		}
+		header .center a:first-child{
+			border-right: solid 0.5px;
+
+		}
+		header .center a:first-child span{
+			background-color: #c9080b;
+			border: solid 1px white;
+			border-radius: 2px 0 0 2px;
+			color: white;
+		}
+		header .right{
+			font-size: 0.813rem;
+		}
+		.tabs{box-sizing: border-box;}
+		.tabs nav a{line-height: 2.3;color: #666666; }
+		.tabs nav a span{display: block;}
+		.tabs ul{
+		border-bottom: solid 0.5px #dadada;
+}
+		.tabs nav li.tab-current a{
+			color: #c9080b;
+		}
+		.tabs nav li.tab-current a span{
+			display: inline-block;
+			border-bottom: solid 1px;
+		}
+		.s1{font-size: 0.938rem;}
+		.s2{font-size:0.875rem;}
+		.s3{font-size:0.75rem;}
+		.s4{font-size:0.719rem;}
+		.s5{font-size:0.625rem;}
+		.smoke{color: #666666;}
+		.grey{color: #bebebe;}
+		.movie-item{
+			padding: 0.4rem 0.78rem 0.78rem 0.78rem;
+			padding-right: 0;
+			border-bottom: solid 0.5px #dadada;
+		}
+		.movie-img{width: 16%;height: 100%;}
+		.movie-info{
+			display: flex;
+			align-items: center;
+		}
+		.basic-info{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-left: 0.66rem;
+			height: 5rem;
+			box-sizing: border-box;
+			border-bottom: solid 0.5px #dadada;
+			width: 84%;
+			padding-bottom: 0.72rem;
+		}
+		.text-info{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+
+		}
+		.other-info{
+			margin-left: 4.41rem;
+		}
+		.movie-item h1{
+			height: 1.75rem;
+			font-weight: bold;
+		}
+		.movie-item button{
+			color: #c9080b;
+			border: solid 0.5px;
+			border-radius: 15px;
+			margin-right: 1.44rem;
+			padding: 2px 8px;
+
+		}
+
+		.sale-tag{
+			border: solid 0.5px #c9080b;
+			border-radius: 2px;
+			color: #c9080b;
+			margin-right: 0.5rem;
+			padding: 1px 4px;
+		}
+
+		.grade{
+			color: #fd9122;font-size: 1rem;margin-left: 0.2rem;font-weight: 500;
+		}
+
+		.other-info{
+			display: flex;
+			align-items: center;
+			margin-top: 0.7rem;
+		}
+
+
+		/*即将上映*/
+		.next-item .basic-info{
+			border: none;
+		}
+
+		/*加载圈*/
+		.icon-jiazaizhong{
+			text-align: center;
+			margin: 0.5rem 0;
+		}
+		.icon-jiazaizhong:before{
+			font-size: 1.5rem;
+			animation:cicle 3s infinite;
+		}
+
+		@keyframes cicle {
+			from{transition:0.5s ease-in}
+			to{transform:rotate(10deg)}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<a class="left back iconfont icon-arrowleft smoke" href="index.html"></a>
+		<div class="center switch-btn s1">
+			<a href=""><span>电影</span></a><a href=""><span>影院</span></a>
+			
+		</div>
+		<span class="right smoke">重庆</span>
+	</header>
+	<div id="tabs" class="tabs blow-header">
+		<nav>
+			<ul class="s2">
+				<li><a href="#section-1" class=""><span>正在热映</span></a></li>
+				<li><a href="#section-2" class=""><span>即将上映</span></a></li>
+			</ul>
+		</nav>
+		<div class="content">
+
+			<section id="section-1">
+				<div class="movie-item">
+					<div class="movie-info">
+						<img src="images/movie1.png" class="movie-img">
+						<div class="basic-info s3">
+							<div class="text-info ">
+								<h1 class="s2">前任3：再见前任</h1>
+								<p class="smoke">观众评<span class="grade">9.4</span></p>
+								<p class="smoke">韩庚|郑恺|韩文文</p>
+							</div>
+							<button>购票</button>
+						</div>
+					</div>
+					<div class="other-info"><span class="s5 sale-tag">周三半价</span><span class="s4 grey">前任系列收官作，吃糖看妞搞事情</span></div>
+				</div>
+				
+				<div class="movie-item">
+					<div class="movie-info">
+						<img src="images/movie2.png" class="movie-img">
+						<div class="basic-info s3">
+							<div class="text-info ">
+								<h1 class="s2">妖铃铃</h1>
+								<p class="smoke">观众评<span class="grade">9.4</span></p>
+								<p class="smoke">吴君如|沈腾|岳云鹏</p>
+							</div>
+							<button>购票</button>
+						</div>
+					</div>
+					<div class="other-info"><span class="s5 sale-tag">周三半价</span><span class="s4 grey">吴君如首次执导，陈可辛保驾护航</span></div>
+				</div>
+
+				<div class="movie-item">
+					<div class="movie-info">
+						<img src="images/movie3.png" class="movie-img">
+						<div class="basic-info s3">
+							<div class="text-info ">
+								<h1 class="s2">芳华</h1>
+								<p class="smoke">观众评<span class="grade">9.4</span></p>
+								<p class="smoke">冯小刚|黄轩|苗苗|钟楚曦</p>
+							</div>
+							<button>购票</button>
+						</div>
+					</div>
+					<div class="other-info"><span class="s5 sale-tag">周三半价</span><span class="s4 grey">从来不需要想起，永远也不需要忘记</span></div>
+				</div>
+
+				<div class="movie-item">
+					<div class="movie-info">
+						<img src="images/movie4.png" class="movie-img">
+						<div class="basic-info s3">
+							<div class="text-info ">
+								<h1 class="s2">二代妖精之今生有幸</h1>
+								<p class="smoke">观众评<span class="grade">9.4</span></p>
+								<p class="smoke">肖洋|冯绍峰|刘亦菲|李光洁</p>
+							</div>
+							<button>购票</button>
+						</div>
+					</div>
+					<div class="other-info"><span class="s5 sale-tag">周三半价</span><span class="s4 grey">我爱人是妖狐，为寻她回不怕苦</span></div>
+				</div>
+				<div class="movie-item">
+					<div class="movie-info">
+						<img src="images/movie1.png" class="movie-img">
+						<div class="basic-info s3">
+							<div class="text-info ">
+								<h1 class="s2">前任3：再见前任</h1>
+								<p class="smoke">观众评<span class="grade">9.4</span></p>
+								<p class="smoke">韩庚|郑恺|韩文文</p>
+							</div>
+							<button>购票</button>
+						</div>
+					</div>
+					<div class="other-info"><span class="s5 sale-tag">周三半价</span><span class="s4 grey">前任系列收官作，吃糖看妞搞事情</span></div>
+				</div>
+				<div class="movie-item">
+					<div class="movie-info">
+						<img src="images/movie1.png" class="movie-img">
+						<div class="basic-info s3">
+							<div class="text-info ">
+								<h1 class="s2">前任3：再见前任</h1>
+								<p class="smoke">观众评<span class="grade">9.4</span></p>
+								<p class="smoke">韩庚|郑恺|韩文文</p>
+							</div>
+							<button>购票</button>
+						</div>
+					</div>
+					<div class="other-info"><span class="s5 sale-tag">周三半价</span><span class="s4 grey">前任系列收官作，吃糖看妞搞事情</span></div>
+				</div>
+
+
+				
+			</section>
+			<section id="section-2">
+				<div class="next-itemts">
+					<h1>2018-4-1 周五</h1>
+					<div class="movie-item next-item">
+					<div class="movie-info">
+						<img src="images/movie1.png" class="movie-img">
+						<div class="basic-info s3">
+							<div class="text-info ">
+								<h1 class="s2">前任3：再见前任</h1>
+								<p>79873人想看</p>
+								<p class="smoke">导演：莱恩.约翰逊</p>
+								<p class="smoke">韩庚|郑恺|韩文文</p>
+							</div>
+							<button>预售</button>
+						</div>
+					</div>
+				</div>
+				</div>
+			</section>
+
+		</div><!-- /content -->
+	</div><!-- /tabs -->
+    <div class="iconfont icon-jiazaizhong"></div>
+
+	<script type="text/javascript" src="js/FullWidthTabs/js/cbpFWTabs.js"></script>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script>
+		new CBPFWTabs( document.getElementById( 'tabs' ) );
+	</script>
+	<script type="text/javascript">
+	$(window).scroll(function(){
+		var scrollTop = $(this).scrollTop();
+		var clientHeight = $(this).height();
+		var windowHeight = $(document).height();
+		if(scrollTop+clientHeight==windowHeight){
+
+			alert("滚到底了"+"scrollTop:"+scrollTop+"clientHeight:"+clientHeight+"windowHeight"+windowHeight);
+		}
+	});
+
+	function test(){
+		
+	}
+	</script>
+</body>
+</html>

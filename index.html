@@ -12,6 +12,8 @@
 	<script type="text/javascript" src="js/common.js"></script>
 	<title>逸票网</title>
 	<style type="text/css">
+	
+
 		header{
 			color: black;
 			justify-content: space-between;
@@ -80,9 +82,58 @@
 			#bookwrapper{
 				height: 9.156rem;
 			}
-			/*轮播图islider*/
-			/*滚动*/
+			/*
+			/*轮播图*/
+			/*用swiper实现*/
+			.banner{margin-top: 2.81rem;height: 11.313rem;
+				}
+			.banner .swiper-slide {box-sizing: border-box;
+					width: 93%;
+					height: 11.313rem;
+					border-radius: 5px;
+					/*border: solid 1px #e8e8e8;为了外阴影效果隐藏*/
+					text-align: center;
+					/* Center slide text vertically */
+					display: -webkit-box;
+					display: -ms-flexbox;
+					display: -webkit-flex;
+					display: flex;
+					-webkit-box-pack: center;
+					-ms-flex-pack: center;
+					-webkit-justify-content: center;
+					justify-content: center;
+					-webkit-box-align: center;
+					-ms-flex-align: center;
+					-webkit-align-items: center;
+					align-items: center;
+					/*overflow: visible;本来是hidden，为了外阴影效果*/
+					overflow: visible;
 
+					
+				}
+			.banner .swiper-slide img{
+				width: 100%;height: 100%;
+			}
+			.banner .swiper-slide.swiper-slide-prev,.banner .swiper-slide.swiper-slide-next{
+				transform: scale(0.98);
+			}
+			
+			/*轮播图外阴影
+			.banner{overflow: visible}
+			.banner .swiper-slide.swiper-slide-active .banner-blur{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+			
+				background-size: cover;
+				filter: blur(30px);
+				z-index: -1;
+
+			}*/
+
+
+			/*用islider实现*/
 			#iSlider-wrapper{
 				height: 11.313rem;
 				width: 100%;
@@ -139,30 +190,27 @@
 				background-color: white;
 			}
 
-			.islider-next{
-
-			}
 			/*商城轮播图swiper*/
 			.swiper-container {background-color: white;
-      			width: 100%;
-      			
-    			}
-    		.swiper1{
-    			height: 11.313rem;
-    			}
-    		.swiper1 .swiper-slide {border-radius: 5px;overflow: hidden;margin-left: 0.688rem;
-     			 background: #fff;
-      			 width: 58.8%;
-      			 flex-shrink: 0;
-    
-
-      /* Center slide text vertically */
-      
-   			 }
-
-    		.swiper-slide img{
 				width: 100%;
-    		}
+
+			}
+			.swiper1{
+				height: 11.313rem;
+			}
+			.swiper1 .swiper-slide {border-radius: 5px;overflow: hidden;margin-left: 0.688rem;
+				background: #fff;
+				width: 58.8%;
+				flex-shrink: 0;
+
+
+				/* Center slide text vertically */
+
+			}
+
+			.swiper-slide img{
+				width: 100%;
+			}
 			/*场馆*/
 			.swiper2 .swiper-slide {
 				box-sizing: border-box;
@@ -181,7 +229,7 @@
 			}
 			
 		</style>
-    
+
 
 	</head>
 	<body  onload="loaded()">
@@ -193,10 +241,29 @@
 			</div>
 		</header>
 		
-        <div class="banner blow-header" id="iSlider-wrapper"></div>
+		<!--<div class="banner blow-header" id="iSlider-wrapper"></div>-->
+		<div class="swiper-container banner blow-header swiper">
+			<div class="swiper-wrapper">
+			<div class="swiper-slide">
+					<img src="images/index-banner1.png">
+				</div>
+				<div class="swiper-slide">
+					<img src="images/banner2.png">
+				</div>
+				<div class="swiper-slide">
+					<img src="images/index-banner2.png">
+				</div>
+				<div class="swiper-slide">
+					<img src="images/banner2.png">
+				</div>
+
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+		</div>
 		<div class="nav-outer">
 			<ul>
-				<li class="nav-item s3" onclick="gotoPage('')">
+				<li class="nav-item s3" onclick="window.location.href='movies-list.html'">
 					<img src="images/nav-item1.png">
 					<span>精彩电影</span>
 				</li>
@@ -330,26 +397,26 @@
 		<p class="s3 more ">更多<span class="iconfont icon-youjiantou"></span></p>
 	</div>
 	<div class="swiper-container swiper1">
-     <div class="swiper-wrapper mall-outer">
-     <div class="swiper-slide s2">
-     	<img src="images/mall-item1.png">
-		<div class="good-info"><p class="hot-name ">给落雪圣诞的暖心礼物1</p><p class="good-price price">￥<span>100</span></p></div>
-		<p class="good-sketch">让它们陪你过一个难忘的圣诞节</p>
-	 </div>
-      <div class="swiper-slide s2">
-     	<img src="images/mall-item1.png">
-		<div class="good-info"><p class="hot-name ">给落雪圣诞的暖心礼物2</p><p class="good-price price">￥<span>100</span></p></div>
-		<p class="good-sketch">让它们陪你过一个难忘的圣诞节</p>
-	 </div>
-	 <div class="swiper-slide s2">
-     	<img src="images/mall-item1.png">
-		<div class="good-info"><p class="hot-name ">给落雪圣诞的暖心礼物3</p><p class="good-price price">￥<span>100</span></p></div>
-		<p class="good-sketch">让它们陪你过一个难忘的圣诞节</p>
-	 </div>
-     
-	 
-      </div>
-      </div>
+		<div class="swiper-wrapper mall-outer">
+			<div class="swiper-slide s2">
+				<img src="images/mall-item1.png">
+				<div class="good-info"><p class="hot-name ">给落雪圣诞的暖心礼物1</p><p class="good-price price">￥<span>100</span></p></div>
+				<p class="good-sketch">让它们陪你过一个难忘的圣诞节</p>
+			</div>
+			<div class="swiper-slide s2">
+				<img src="images/mall-item1.png">
+				<div class="good-info"><p class="hot-name ">给落雪圣诞的暖心礼物2</p><p class="good-price price">￥<span>100</span></p></div>
+				<p class="good-sketch">让它们陪你过一个难忘的圣诞节</p>
+			</div>
+			<div class="swiper-slide s2">
+				<img src="images/mall-item1.png">
+				<div class="good-info"><p class="hot-name ">给落雪圣诞的暖心礼物3</p><p class="good-price price">￥<span>100</span></p></div>
+				<p class="good-sketch">让它们陪你过一个难忘的圣诞节</p>
+			</div>
+
+
+		</div>
+	</div>
 	
 </div>
 
@@ -423,42 +490,42 @@
 	</div>
 
 	<div class="swiper-container swiper2">
-     <div class="swiper-wrapper sport-outer">
-     <div class="swiper-slide s2">
-     		<img src="images/sport-item1.png">
-			<div class="sport-info"><p>凤凰湾半山俱乐部羽毛球馆1</p><span class="s3">在线预订</span></div>
-			<p class="grey">营业时间：<span>09:00-00:00</span></p>
-			<p class="grey">场馆地址：<span>江北区石马河宏帆路28号宏帆八中附近</span></p>
-	 </div>
-       <div class="swiper-slide s2">
-     		<img src="images/sport-item1.png">
-			<div class="sport-info"><p>凤凰湾半山俱乐部羽毛球馆2</p><span class="s3">在线预订</span></div>
-			<p class="grey">营业时间：<span>09:00-00:00</span></p>
-			<p class="grey">场馆地址：<span>江北区石马河宏帆路28号宏帆八中附近</span></p>
-	 </div>
-	  <div class="swiper-slide s2">
-     		<img src="images/sport-item1.png">
-			<div class="sport-info"><p>凤凰湾半山俱乐部羽毛球馆3</p><span class="s3">在线预订</span></div>
-			<p class="grey">营业时间：<span>09:00-00:00</span></p>
-			<p class="grey">场馆地址：<span>江北区石马河宏帆路28号宏帆八中附近</span></p>
-	 </div>
-     
-	 
-      </div>
-      <!-- Add Pagination -->
-    <div class="swiper-pagination swiper-pagination3"></div>
-      </div>
-      
+		<div class="swiper-wrapper sport-outer">
+			<div class="swiper-slide s2">
+				<img src="images/sport-item1.png">
+				<div class="sport-info"><p>凤凰湾半山俱乐部羽毛球馆1</p><span class="s3">在线预订</span></div>
+				<p class="grey">营业时间：<span>09:00-00:00</span></p>
+				<p class="grey">场馆地址：<span>江北区石马河宏帆路28号宏帆八中附近</span></p>
+			</div>
+			<div class="swiper-slide s2">
+				<img src="images/sport-item1.png">
+				<div class="sport-info"><p>凤凰湾半山俱乐部羽毛球馆2</p><span class="s3">在线预订</span></div>
+				<p class="grey">营业时间：<span>09:00-00:00</span></p>
+				<p class="grey">场馆地址：<span>江北区石马河宏帆路28号宏帆八中附近</span></p>
+			</div>
+			<div class="swiper-slide s2">
+				<img src="images/sport-item1.png">
+				<div class="sport-info"><p>凤凰湾半山俱乐部羽毛球馆3</p><span class="s3">在线预订</span></div>
+				<p class="grey">营业时间：<span>09:00-00:00</span></p>
+				<p class="grey">场馆地址：<span>江北区石马河宏帆路28号宏帆八中附近</span></p>
+			</div>
+
+
+		</div>
+		<!-- Add Pagination -->
+		<div class="swiper-pagination swiper-pagination3"></div>
+	</div>
+
 	
 </div>
-	<ul class="">
-		<li class="s2 sport-item s2">
-			
-		</li>
-		<li class="s2 mall-item">
+<ul class="">
+	<li class="s2 sport-item s2">
 
-		</li>
-	</ul>
+	</li>
+	<li class="s2 mall-item">
+
+	</li>
+</ul>
 </div>
 
 
@@ -469,26 +536,26 @@
 		<p class="s3 more ">更多<span class="iconfont icon-youjiantou"></span></p>
 	</div>
 	<div class="swiper-container swiper2">
-     <div class="swiper-wrapper sport-outer">
-     <div class="swiper-slide s2">
-     		<img src="images/sport-item2.png">
-			<div class="sport-info"><p>龙凤桥恒温游泳馆1</p><span class="s3">在线预订</span></div>
-			<p class="grey">营业时间：<span>09:00-00:00</span></p>
-			<p class="grey">场馆地址：<span>江北区龙凤一村80号</span></p>
-	 </div>
-	 <div class="swiper-slide s2">
-     		<img src="images/sport-item2.png">
-			<div class="sport-info"><p>龙凤桥恒温游泳馆2</p><span class="s3">在线预订</span></div>
-			<p class="grey">营业时间：<span>09:00-00:00</span></p>
-			<p class="grey">场馆地址：<span>江北区龙凤一村80号</span></p>
-	 </div>
-      
-     
-	 
-      </div>
-      <!-- Add Pagination -->
-    <div class="swiper-pagination swiper-pagination3"></div>
-      </div>
+		<div class="swiper-wrapper sport-outer">
+			<div class="swiper-slide s2">
+				<img src="images/sport-item2.png">
+				<div class="sport-info"><p>龙凤桥恒温游泳馆1</p><span class="s3">在线预订</span></div>
+				<p class="grey">营业时间：<span>09:00-00:00</span></p>
+				<p class="grey">场馆地址：<span>江北区龙凤一村80号</span></p>
+			</div>
+			<div class="swiper-slide s2">
+				<img src="images/sport-item2.png">
+				<div class="sport-info"><p>龙凤桥恒温游泳馆2</p><span class="s3">在线预订</span></div>
+				<p class="grey">营业时间：<span>09:00-00:00</span></p>
+				<p class="grey">场馆地址：<span>江北区龙凤一村80号</span></p>
+			</div>
+
+
+
+		</div>
+		<!-- Add Pagination -->
+		<div class="swiper-pagination swiper-pagination3"></div>
+	</div>
 </div>
 
 <!--底部导航-->
@@ -500,12 +567,13 @@
 		<li class="nav-list s3"><span class="iconfont icon-wode s1"></span>我的</li>
 	</ul>
 </div>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="js/iSlider/build/iSlider.min.js"></script>
 <script type="text/javascript" src="js/iSlider/build/iSlider.animate.js"></script>
 <script type="text/javascript" src="js/iSlider/build/iSlider.plugin.dot.js"></script>
 <script type="text/javascript" src="js/Swiper-4.1.0/dist/js/swiper.min.js"></script>
 <script type="text/javascript">
-/*轮播islider*/
+/*banner轮播islider
 	var list = [
 	{content:'images/banner2.png'},
 	{content:'images/index-banner1.png'},
@@ -519,7 +587,7 @@
 			isOverspread: 1,
 			animateTime: 800,
 			animateType: 'flow',
-			/*plugins: ['dot', 'button']*/
+			/*plugins: ['dot', 'button']
 		});}else{
 			var S = new iSlider(document.getElementById('iSlider-wrapper'), list, {
 				isAutoplay: 1,
@@ -527,9 +595,9 @@
 				isOverspread: 1,
 				animateTime: 800,
 
-			});}
-	/*轮播swiper*/
-	  var swiper1 = new Swiper('.swiper1', {
+			});} */
+/*
+	 var swiper = new Swiper('.swiper', {
       slidesPerView: 'auto',
       spaceBetween: 0,
       loop:true,
@@ -543,10 +611,20 @@
         el: '.swiper-pagination',
         clickable: true,
       },
-    });
+  });*/
 
-	  var swiper2 = new Swiper('.swiper2', {
-     slidesPerView: 'auto',
+  var swiper = new Swiper('.swiper', {
+  	slidesPerView: 'auto',
+  	centeredSlides: true,
+  	spaceBetween: 0,
+  	/*pagination: {
+  		el: '.swiper-pagination',
+  		clickable: true,
+  	},*/
+  });
+
+   var swiper1 = new Swiper('.swiper1', {
+      slidesPerView: 'auto',
       spaceBetween: 0,
       loop:true,
       loopAdditionalSlides : 1,
@@ -555,55 +633,76 @@
       	disableOnInteraction:false,
       	speed:100,
       },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
+     
     });
 
+  var swiper2 = new Swiper('.swiper2', {
+  	slidesPerView: 'auto',
+  	spaceBetween: 0,
+  	loop:true,
+  	loopAdditionalSlides : 1,
+  	autoplay:{
+  		stopOnLastSlide:false,
+  		disableOnInteraction:false,
+  		speed:100,
+  	},
+  	pagination: {
+  		el: '.swiper-pagination',
+  		clickable: true,
+  	},
+  });
 
-			/*倒计时*/
-			var d = document.getElementsByClassName('d')[0];
-			var h = document.getElementsByClassName('h')[0];
-			var m = document.getElementsByClassName('m')[0];
-			var s = document.getElementsByClassName('s')[0];
+  /*banner设置外阴影*/
+  $('.banner img').after("<div class='banner-blur'></div>");
+  var $bannerImg=null;
+  for(let i=0;i< $(".banner-blur").length;i++){
+  		$bannerImg =  $(".banner img:eq("+i+")").attr("src");
+  		$(".banner-blur:eq("+i+")").css("background-image","url"+"("+$bannerImg+")");
+  }
 
-			function countDown(time){
-				var day=0;
-				var hour=0;
-				var minute=0;
-				var second=0;
-				var transTime;
-				var timer= setInterval(function(){
-					day = Math.floor(time/(60*60*24));
-					hour = Math.floor(time/(60*60)-day*24);
-					minute = Math.floor(time/60-day*24*60-hour*60);
-					second = Math.floor(time-day*24*60*60-hour*60*60-minute*60);
-					d.innerHTML = day;
-					h.innerHTML = hour;
-					m.innerHTML = minute;
-					s.innerHTML = second;
-					time--;
-					if(time<0){
-						clearInterval(timer);
-					}
-				},1000);
-			}
 
-			countDown(10000);
+  /*倒计时*/
+  var d = document.getElementsByClassName('d')[0];
+  var h = document.getElementsByClassName('h')[0];
+  var m = document.getElementsByClassName('m')[0];
+  var s = document.getElementsByClassName('s')[0];
 
-			
-	</script>
-	<!--滚动-->
-	<script type="text/javascript" src="js/iscroll-master/build/iscroll.js"></script>
-	<script type="text/javascript">
-		var myScroll;
-		var showScroll;
-		function loaded () {
-			myScroll = new IScroll('#wrapper', { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
-			showScroll = new IScroll('#showwrapper', { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
-			bookScroll = new IScroll('#bookwrapper', { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
-		}
+  function countDown(time){
+  	var day=0;
+  	var hour=0;
+  	var minute=0;
+  	var second=0;
+  	var transTime;
+  	var timer= setInterval(function(){
+  		day = Math.floor(time/(60*60*24));
+  		hour = Math.floor(time/(60*60)-day*24);
+  		minute = Math.floor(time/60-day*24*60-hour*60);
+  		second = Math.floor(time-day*24*60*60-hour*60*60-minute*60);
+  		d.innerHTML = day;
+  		h.innerHTML = hour;
+  		m.innerHTML = minute;
+  		s.innerHTML = second;
+  		time--;
+  		if(time<0){
+  			clearInterval(timer);
+  		}
+  	},1000);
+  }
+
+  countDown(10000);
+
+
+</script>
+<!--滚动iscroll-->
+<script type="text/javascript" src="js/iscroll-master/build/iscroll.js"></script>
+<script type="text/javascript">
+	var myScroll;
+	var showScroll;
+	function loaded () {
+		myScroll = new IScroll('#wrapper', { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
+		showScroll = new IScroll('#showwrapper', { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
+		bookScroll = new IScroll('#bookwrapper', { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
+	}
     		//设置scroll宽度
     		var scroller = document.getElementById('scroller');
     		var showScroller = document.getElementById('showscroller');

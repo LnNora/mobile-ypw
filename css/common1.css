@@ -1,0 +1,92 @@
+
+
+/*头部*/
+header{
+	height: 2.81rem;
+	display: flex;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 0.6rem;
+	z-index: 101;
+	background-color: white;
+}
+
+
+.left{
+	position: absolute;
+}
+.center{
+	/*width: 50%;*/
+	margin: 0 auto;
+	text-align: center;
+}
+.right{
+	position: absolute;
+	right: 0.969rem;
+}
+
+.blow-header{
+	margin-top: 2.81rem;
+}
+.icon-arrowleft:before,.icon-home:before{
+	font-size: 1.25rem;
+
+}
+
+/*底部导航*/
+.nav{
+	color: #989898;
+	border-top: solid 1px #989898;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: white;
+}
+.nav ul{
+	display: flex;
+	padding: 0.563rem 0.969rem 0.344rem 0.969rem;
+	justify-content: space-between;
+}
+
+.nav-list{
+	width: 20%;
+	text-align: center;
+
+}
+.nav-list:hover{
+	color: #d43c33;
+}
+.nav-list span{
+	display: block;
+	text-align: center;
+}
+
+.nav-list .iconfont:before{
+	font-size:1.56rem;
+}
+
+/*去除点击时的阴影*/
+.nav-list{
+-webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+
+}
+
+/*字体*/
+@font-face{
+	font-family: pingfang;
+	/*font-family: Microsoft YaHei;*/
+	src:url('font/PingFang Regular.ttf');
+}
+
+body,input{
+	font-family: SimHei;
+}
+.webfont-loaded body {
+font-family: pingfang;
+}
+input{font-size: inherit;}
