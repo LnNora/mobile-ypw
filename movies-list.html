@@ -133,17 +133,35 @@
 
 		/*加载圈*/
 		.icon-jiazaizhong{
-			text-align: center;
-			margin: 0.5rem 0;
+			visibility:hidden;
 		}
-		.icon-jiazaizhong:before{
+		.icon-jiazaizhong.active{
+			visibility: visible;
+			text-align: center;
+			margin: 0.5rem auto;
+			width: 1.5rem;
+			height: 1.5rem;
+			animation: mymove 1s infinite;
+
+		}
+		.icon-jiazaizhong.active:before{
 			font-size: 1.5rem;
-			animation:cicle 3s infinite;
+			vertical-align: middle;
 		}
 
-		@keyframes cicle {
-			from{transition:0.5s ease-in}
-			to{transform:rotate(10deg)}
+		@keyframes mymove {
+			from{transform:rotate(0deg)}
+			to{transform:rotate(360deg)}
+		}
+		
+		.tabs nav{
+			position: fixed;
+			top: 2.81rem;
+			width: 100%;
+			background-color: #fff;
+		}
+		.content{
+			margin-top: 5rem;
 		}
 	</style>
 </head>
@@ -156,7 +174,7 @@
 		</div>
 		<span class="right smoke">重庆</span>
 	</header>
-	<div id="tabs" class="tabs blow-header">
+	<div id="tabs" class="tabs">
 		<nav>
 			<ul class="s2">
 				<li><a href="#section-1" class=""><span>正在热映</span></a></li>
@@ -175,7 +193,7 @@
 								<p class="smoke">观众评<span class="grade">9.4</span></p>
 								<p class="smoke">韩庚|郑恺|韩文文</p>
 							</div>
-							<button>购票</button>
+							<button onclick="test()">购票</button>
 						</div>
 					</div>
 					<div class="other-info"><span class="s5 sale-tag">周三半价</span><span class="s4 grey">前任系列收官作，吃糖看妞搞事情</span></div>
@@ -211,7 +229,7 @@
 					<div class="other-info"><span class="s5 sale-tag">周三半价</span><span class="s4 grey">从来不需要想起，永远也不需要忘记</span></div>
 				</div>
 
-				<div class="movie-item">
+				<div class="movie-item" onclick="">
 					<div class="movie-info">
 						<img src="images/movie4.png" class="movie-img">
 						<div class="basic-info s3">
@@ -239,20 +257,7 @@
 					</div>
 					<div class="other-info"><span class="s5 sale-tag">周三半价</span><span class="s4 grey">前任系列收官作，吃糖看妞搞事情</span></div>
 				</div>
-				<div class="movie-item">
-					<div class="movie-info">
-						<img src="images/movie1.png" class="movie-img">
-						<div class="basic-info s3">
-							<div class="text-info ">
-								<h1 class="s2">前任3：再见前任</h1>
-								<p class="smoke">观众评<span class="grade">9.4</span></p>
-								<p class="smoke">韩庚|郑恺|韩文文</p>
-							</div>
-							<button>购票</button>
-						</div>
-					</div>
-					<div class="other-info"><span class="s5 sale-tag">周三半价</span><span class="s4 grey">前任系列收官作，吃糖看妞搞事情</span></div>
-				</div>
+			
 
 
 				
@@ -279,7 +284,7 @@
 
 		</div><!-- /content -->
 	</div><!-- /tabs -->
-    <div class="iconfont icon-jiazaizhong"></div>
+    <div class="iconfont icon-jiazaizhong active"></div>
 
 	<script type="text/javascript" src="js/FullWidthTabs/js/cbpFWTabs.js"></script>
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
@@ -287,19 +292,40 @@
 		new CBPFWTabs( document.getElementById( 'tabs' ) );
 	</script>
 	<script type="text/javascript">
+	var loadedNum=0;
+	var pageNum = 0;
+	var perNum=2;
+	var startIndex=0;
 	$(window).scroll(function(){
 		var scrollTop = $(this).scrollTop();
 		var clientHeight = $(this).height();
 		var windowHeight = $(document).height();
-		if(scrollTop+clientHeight==windowHeight){
-
-			alert("滚到底了"+"scrollTop:"+scrollTop+"clientHeight:"+clientHeight+"windowHeight"+windowHeight);
+		if(windowHeight-(scrollTop+clientHeight)<10){
+			$.ajax({
+				url:"json/movies.json",
+				dataType:"json",
+				success:function(data){
+					if(loadedNum<data.length){
+					var html = '';
+					for(var i=startIndex;i<startIndex+perNum;i++){
+						html+='<div class="movie-item"><div class="movie-info"><img src="'+data[i].img+'"  class="movie-img"><div class="basic-info s3"><div class="text-info "><h1 class="s2">'+data[i].title+'</h1><p class="smoke">观众评<span class="grade">'+data[i].grade+'</span></p><p class="smoke">'+data[i].actors+'</p></div><button>购票</button></div></div><div class="other-info"><span class="s5 sale-tag">周三半价</span><span class="s4 grey">'+data[i].abstract+'</span></div></div>';
+						loadedNum++; 
+					}
+					startIndex+=perNum;
+					$("#section-1").append(html);
+				}else{
+					$(".icon-jiazaizhong").removeClass('active');
+					}
+				}
+			})
 		}
 	});
 
 	function test(){
-		
+		alert(1);
 	}
+	</script>
+	<script type="text/javascript">
 	</script>
 </body>
 </html>
