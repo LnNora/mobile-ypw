@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
     <style type="text/css">
         html,body{
             width: 100%;
@@ -20,6 +20,8 @@
         .title-content{
             background-color: #fff;
             padding: 0.7rem;
+            z-index: 3;
+            position: relative;
         }
         h1,p{margin: 0;padding: 0;}
         ul{padding: 0;margin: 0;}
@@ -46,9 +48,11 @@
         }
         .seat-index{
             position: absolute;
-            top: 30px;
             left: 0;
             z-index: 2;
+            transform-origin:0 0;
+            
+            
 
         }
         .seat-index ul{
@@ -56,74 +60,93 @@
             color: #fff;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            transform-origin:0 0;
+            border-radius: 50px;
+            padding-top:25px;
         }
          .seat-index li{
-            padding: 0 3px;
+            height: 40px;
+            margin:5px;
          }
+
         </style>
     </head>
     <body>
         <div class="title-content">
-            <h1 class="text30 title">星球大战：最后的绝地武士</h1>
+            <h1 class="text30 title" onPointerdown="alert(1)">星球大战：最后的绝地武士</h1>
             <p class="text27 ligth-grey">今天1月8日 13:20 英文3d</p>
         </div>
         <div id="seat-container">
             <div class="hall-name">
                 <p class="i-screen">2号UME MAX厅 银幕</p>
             </div>
-            <div style="height: 413px;overflow:hidden;border: solid 1px red">
+            <div style="height: 413px;overflow:hidden;">
                     <div class="seat-index">
                         <ul class="xseat-rows">
                         </ul>
                     </div>
-                    <div class="x-content">
+                    <div class="x-content canvas-container">
                         <canvas id="drawing" width="2000" height="500"></canvas>
                     </div>
             </div>
         </div>
         <img src="images/seat.png" style="display: none;">
         <img src="images/seat_active.png" style="display: none;">
+        <img src="images/seat_checked.png" style="display: none;">
         <script type="text/javascript">
     //排数
-    var row=10;
+    var row=13;
     //列数
-    var column = 20;
-    //起始坐标
+    var column = 22;
+    //图形起始坐标
     var x = 20,y=20;
+    //图形相对于屏幕的y坐标
+
     var drawing = document.getElementById("drawing");
-    var xContent = document.getElementsByClassName('x-content')[0];
-    var yContent = document.getElementsByClassName('y-content')[0];
-    var index = $(".seat-index ul");
+    var xContent = $(".x-content");
+    var index = $(".seat-index");
+
+    var drawStartY = xContent.offset().top+y/2;
+    console.log(drawStartY);
+    var scale;
+    var isScale=false;
+    var downTime,upTime,upX,upY;
+    var activeR;
+    var activeC;
+    //以下用于计算平移距离
     var startX;
     var endX;
     var diffrenceX=0;
     var hasMovedX=0;
     var translateX=0;
-
     var startY;
     var endY;
     var diffrenceY=0;
     var hasMovedY=0;
     var translateY=0;
+    
+    
+
+
     if(drawing.getContext){
         var width=40*column+10*(column+2);
         var height=40*row+10*(row+2);
         drawing.width=width;
         drawing.height=height;
-        index.height(height-50);
+        index.height(height);
         var screenW=document.body.clientWidth;
         var screenH=document.body.clientHeight;
-        var scale = screenW/width;
-        xContent.style.width=width+"px";
-        xContent.style.height=height+"px";
-        xContent.style.transform="scale("+scale+","+scale+")";
+        scale = screenW/width;
+        xContent.css({
+            width: width+"px",
+            height: height+"px",
+            transform: "scale("+scale+","+scale+")"
+        });
         index.css("transform","scale("+scale+","+scale+")")
         var context = drawing.getContext("2d");
         context = drawing.getContext('2d')
         var image = document.images[0];
         var imageActive = document.images[1];
+        var imageChecked = document.images[2];
         //绘制图像
         for(var i=0;i<row;i++){
             for(var j=0;j<column;j++){
@@ -133,69 +156,111 @@
                 }
                 x+=50;
             }
-            index.append("<li>"+(i+1)+"</li>");
+            index.find("ul").append("<li>"+(i+1)+"</li>");
 
             x=20;y+=50;
         }
+        y=20;
 
         
-        xContent.addEventListener("click",changeX);
-        
-        function changeX(){
-            xContent.style.transform="scale(1,1)";
-            xContent.ontouchstart=function(e){
-                startX = e.touches[0].pageX;
+ 
+            //touch开始
+            xContent.bind("touchstart",function(e){
+                downTime = new Date().getTime();
+
+                startX = e.originalEvent.targetTouches[0].pageX;
                 hasMovedX=translateX;//手指再次触摸时，记录上一次已经平移的距离
-
-                startY = e.touches[0].pageY;
+                startY = e.originalEvent.targetTouches[0].pageY;
                 hasMovedY=translateY;//手指再次触摸时，记录上一次已经平移的距离
+                xContent.css("transition","none");
+                index.css("transition","none");
+            })
+    
 
-                xContent.style.transition="none";
-            }
-            xContent.ontouchmove=function(e){
-                endX = e.touches[0].pageX;
+
+            //touch移动
+            xContent.bind("touchmove",function(e){
+                endX = e.originalEvent.targetTouches[0].pageX;
                 diffrenceX=endX-startX;//手指滑动距离
                 translateX=hasMovedX+diffrenceX;//需要平移的距离
 
-                endY = e.touches[0].pageY;
+                endY = e.originalEvent.targetTouches[0].pageY;
                 diffrenceY=endY-startY;//手指滑动距离
                 translateY=hasMovedY+diffrenceY;//需要平移的距离
-                console.log(translateY);
-                xContent.style.transform="translate("+translateX+"px,"+translateY+"px)";
+                xContent.css("transform","translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")");
+                index.css("transform","translateY("+translateY+"px) scale("+scale+","+scale+")");
                 e.preventDefault();
+            });
+
+
+            //touch结束
+
+            //hasMoved绝对值
+            hasMovedAx=Math.abs(hasMovedX);
+            hasMovedAy=Math.abs(hasMovedY);
+            xContent.bind("touchend",function(e){
+                upTime = new Date().getTime();
+                
+            if(upTime-downTime<150){
+                if((startX+hasMovedAx-x)%50>=0&&(startX+hasMovedAx-x)%50<=40){
+                    //除法取整数
+                    activeR=parseInt((startX+hasMovedAx-x)/50);
+                    activeC=parseInt((startY+hasMovedAx-drawStartY)/50);
+                    var a=activeR*50+x;var b=activeC*50+y;
+                    context.clearRect(a,b,40,40);
+                    context.drawImage(imageChecked,a,b,40,40);
+                    scale=1;
+                    xContent.css("transform","translate("+translateX+"px,"+translateY+"px) scale(1,1)");
+                    index.css("transform","translateY("+translateY+"px) scale(1,1)");
+                }
             }
-            xContent.ontouchend=function(e){
                 //判断是否移动到了右边界
                 if(width+translateX<screenW){
                     translateX=screenW-width;
-                    xContent.style.transition="all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms";
-                    xContent.style.transform="translate("+translateX+"px,"+translateY+"px)";
+                    xContent.css({
+                        transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
+                        transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
+                    });
                     
                 //判断是否移动到了左边界
             }else if(translateX>0){
                 translateX=0;
-                xContent.style.transition="all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms";
-                xContent.style.transform="translate("+translateX+"px,"+translateY+"px)";
+                xContent.css({
+                        transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
+                        transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
+                    });
                 
             }
                 //判断是否移动到了下边界
                 if(height+translateY<413){
                     translateY=413-height;
-                    xContent.style.transition="all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms";
-                    xContent.style.transform="translate("+translateX+"px,"+translateY+"px)";
+                    xContent.css({
+                        transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
+                        transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
+                    });
+                     index.css({
+                        transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
+                        transform: "translateY("+translateY+"px) scale("+scale+","+scale+")"
+                    });
                     
                 //判断是否移动到了上边界
             }else if(translateY>0){
                 translateY=0;
-                xContent.style.transition="all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms";
-                xContent.style.transform="translate("+translateX+"px,"+translateY+"px)";
+                xContent.css({
+                        transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
+                        transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
+                    });
+                 index.css({
+                        transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
+                        transform: "translateY("+translateY+"px) scale("+scale+","+scale+")"
+                    });
                 
             }
 
 
-        }
+        })
 
-    }
+
 
 
 
