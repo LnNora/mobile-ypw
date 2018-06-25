@@ -43,31 +43,38 @@
         .ligth-grey{color: #777;}
         .x-content{
             transform-origin:0 0;}
-        #seat-container{
-            position: relative;
-        }
-        .seat-index{
-            position: absolute;
-            left: 0;
-            z-index: 2;
-            transform-origin:0 0;
-            
-            
+            #seat-container{
+                position: relative;
+ 
+                overflow: hidden;
+            }
+            .seat-index{
+                position: absolute;
+                left: 0;
+                z-index: 2;
+                transform-origin:0 0;
 
-        }
-        .seat-index ul{
-            background-color: rgba(0,0,0,.3);
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            border-radius: 50px;
-            padding-top:25px;
-        }
-         .seat-index li{
-            height: 40px;
-            margin:5px;
-         }
 
+
+            }
+            .seat-index ul{
+                background-color: rgba(0,0,0,.3);
+                color: #fff;
+                display: flex;
+                flex-direction: column;
+                border-radius: 50px;
+                padding-top:25px;
+            }
+            .seat-index li{
+                height: 40px;
+                margin:5px;
+            }
+            .flex-row{
+                display: flex;
+            }
+            .recomment-wrap{
+                background-color: #fff;
+            }
         </style>
     </head>
     <body>
@@ -80,23 +87,34 @@
                 <p class="i-screen">2号UME MAX厅 银幕</p>
             </div>
             <div style="height: 413px;overflow:hidden;">
-                    <div class="seat-index">
-                        <ul class="xseat-rows">
-                        </ul>
-                    </div>
-                    <div class="x-content canvas-container">
-                        <canvas id="drawing" width="2000" height="500"></canvas>
-                    </div>
+                <div class="seat-index">
+                    <ul class="xseat-rows">
+                    </ul>
+                </div>
+                <div class="x-content canvas-container">
+                    <canvas id="drawing" width="2000" height="500"></canvas>
+                </div>
             </div>
         </div>
+        <div class="recomment-wrap flex-row">
+                <div class="recommend-title">推荐座位</div>
+                <ul class="recommend-list flex-row">                                         
+                 <li class="recommend-item ticket-item " data-key="1"><span>1人</span></li> 
+                 <li class="recommend-item ticket-item " data-key="2"><span>2人</span></li>
+                 <li class="recommend-item ticket-item " data-key="3"><span>3人</span></li> 
+                 <li class="recommend-item ticket-item " data-key="4"><span>4人</span></li>
+                </ul>
+            </div>
         <img src="images/seat.png" style="display: none;">
         <img src="images/seat_active.png" style="display: none;">
         <img src="images/seat_checked.png" style="display: none;">
         <script type="text/javascript">
-    //排数
+
+        $(function(){
+            //排数
     var row=13;
     //列数
-    var column = 22;
+    var column = 10;
     //图形起始坐标
     var x = 20,y=20;
     //图形相对于屏幕的y坐标
@@ -106,7 +124,6 @@
     var index = $(".seat-index");
 
     var drawStartY = xContent.offset().top+y/2;
-    console.log(drawStartY);
     var scale;
     var isScale=false;
     var downTime,upTime,upX,upY;
@@ -123,6 +140,7 @@
     var diffrenceY=0;
     var hasMovedY=0;
     var translateY=0;
+
     
     
 
@@ -135,11 +153,14 @@
         index.height(height);
         var screenW=document.body.clientWidth;
         var screenH=document.body.clientHeight;
-        scale = screenW/width;
+        scale = 413/height;
+        var toCenter = screenW/2-width*scale/2;
+        translateX=toCenter;
+        console.log(toCenter);
         xContent.css({
             width: width+"px",
             height: height+"px",
-            transform: "scale("+scale+","+scale+")"
+            transform: "translateX("+toCenter+"px) scale("+scale+","+scale+")"
         });
         index.css("transform","scale("+scale+","+scale+")")
         var context = drawing.getContext("2d");
@@ -163,7 +184,7 @@
         y=20;
 
         
- 
+
             //touch开始
             xContent.bind("touchstart",function(e){
                 downTime = new Date().getTime();
@@ -175,7 +196,7 @@
                 xContent.css("transition","none");
                 index.css("transition","none");
             })
-    
+
 
 
             //touch移动
@@ -195,23 +216,21 @@
 
             //touch结束
 
-            //hasMoved绝对值
-            hasMovedAx=Math.abs(hasMovedX);
-            hasMovedAy=Math.abs(hasMovedY);
             xContent.bind("touchend",function(e){
-                upTime = new Date().getTime();
-                
-            if(upTime-downTime<150){
-                if((startX+hasMovedAx-x)%50>=0&&(startX+hasMovedAx-x)%50<=40){
-                    //除法取整数
-                    activeR=parseInt((startX+hasMovedAx-x)/50);
-                    activeC=parseInt((startY+hasMovedAx-drawStartY)/50);
-                    var a=activeR*50+x;var b=activeC*50+y;
-                    context.clearRect(a,b,40,40);
-                    context.drawImage(imageChecked,a,b,40,40);
+                upTime = new Date().getTime();//用来判断是点击还是拖拉
+                var isInX = (startX-hasMovedX-x)%(50*scale)>=0&&(startX-hasMovedX-x)%(50*scale)<=40;//x方向判断是否落在图形内
+                if(upTime-downTime<150){
+                    if(isInX){
+                    //除法取整数,乘以scale是为了在缩放时，也能正确定位到图形
+                    activeR=parseInt((startX-hasMovedX-x*scale)/(50*scale));//x方向第几个
+                    activeC=parseInt((startY-hasMovedY-drawStartY)/(50*scale));//y方向第几个
+                    var a=activeR*(50*scale)+x*scale;var b=activeC*(50*scale)+y*scale;
+                    context.clearRect(a/scale,b/scale,40,40);
+                    context.drawImage(imageChecked,a/scale,b/scale,40,40);
                     scale=1;
                     xContent.css("transform","translate("+translateX+"px,"+translateY+"px) scale(1,1)");
                     index.css("transform","translateY("+translateY+"px) scale(1,1)");
+
                 }
             }
                 //判断是否移动到了右边界
@@ -226,9 +245,9 @@
             }else if(translateX>0){
                 translateX=0;
                 xContent.css({
-                        transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
-                        transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
-                    });
+                    transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
+                    transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
+                });
                 
             }
                 //判断是否移动到了下边界
@@ -238,7 +257,7 @@
                         transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
                         transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
                     });
-                     index.css({
+                    index.css({
                         transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
                         transform: "translateY("+translateY+"px) scale("+scale+","+scale+")"
                     });
@@ -247,13 +266,13 @@
             }else if(translateY>0){
                 translateY=0;
                 xContent.css({
-                        transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
-                        transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
-                    });
-                 index.css({
-                        transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
-                        transform: "translateY("+translateY+"px) scale("+scale+","+scale+")"
-                    });
+                    transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
+                    transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
+                });
+                index.css({
+                    transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
+                    transform: "translateY("+translateY+"px) scale("+scale+","+scale+")"
+                });
                 
             }
 
@@ -266,10 +285,12 @@
 
 
 
+
+        }
+
+        })
     
-}
 
-
-</script>
+    </script>
 </body>
 </html>
