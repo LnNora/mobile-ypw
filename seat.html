@@ -114,7 +114,7 @@
             //排数
     var row=13;
     //列数
-    var column = 10;
+    var column = 20;
     //图形起始坐标
     var x = 20,y=20;
     //图形相对于屏幕的y坐标
@@ -141,8 +141,8 @@
     var hasMovedY=0;
     var translateY=0;
 
-    
-    
+    var toFocus=0;//放大时让点击点在中间需要移动的像素
+    var isReduce=true;
 
 
     if(drawing.getContext){
@@ -228,14 +228,20 @@
                     context.clearRect(a/scale,b/scale,40,40);
                     context.drawImage(imageChecked,a/scale,b/scale,40,40);
                     scale=1;
+                    
                     xContent.css("transform","translate("+translateX+"px,"+translateY+"px) scale(1,1)");
-                    index.css("transform","translateY("+translateY+"px) scale(1,1)");
-
+                    index.css("transform","translateY("+translateY+"px) scale(1,1)");}
+                    isReduce=false;
+                    if(isReduce){
+                    toFocus=screenW/2-(a/scale+20);
+                    console.log(a/scale);
+                    console.log(toFocus);
+                    xContent.css("transform","translateX("+toFocus+"px) scale("+scale+","+scale+")");
                 }
             }
-                //判断是否移动到了右边界
-                if(width+translateX<screenW){
-                    translateX=screenW-width;
+                //判断是否移动到了右边界,乘以scale是为了在图形未放大时也能正确判断，以下同理
+                if(width*scale+translateX<screenW){
+                    translateX=screenW-width*scale;
                     xContent.css({
                         transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
                         transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
@@ -251,8 +257,8 @@
                 
             }
                 //判断是否移动到了下边界
-                if(height+translateY<413){
-                    translateY=413-height;
+                if(height*scale+translateY<413){
+                    translateY=413-height*scale;
                     xContent.css({
                         transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
                         transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
