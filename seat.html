@@ -42,7 +42,7 @@
         .text27{font-size: 0.75rem;}
         .ligth-grey{color: #777;}
         .x-content{
-            transform-origin:0 0;}
+            transform-origin:0 0;border: solid 1px;}
             #seat-container{
                 position: relative;
  
@@ -112,9 +112,9 @@
 
         $(function(){
             //排数
-    var row=13;
+    var row=20;
     //列数
-    var column = 20;
+    var column = 13;
     //图形起始坐标
     var x = 20,y=20;
     //图形相对于屏幕的y坐标
@@ -141,7 +141,8 @@
     var hasMovedY=0;
     var translateY=0;
 
-    var toFocus=0;//放大时让点击点在中间需要移动的像素
+    var toFocusX=0;//放大时让点击点在中间需要移动的像素
+    var toFocusY=0;
     var isReduce=true;
 
 
@@ -156,7 +157,6 @@
         scale = 413/height;
         var toCenter = screenW/2-width*scale/2;
         translateX=toCenter;
-        console.log(toCenter);
         xContent.css({
             width: width+"px",
             height: height+"px",
@@ -169,19 +169,20 @@
         var imageActive = document.images[1];
         var imageChecked = document.images[2];
         //绘制图像
-        for(var i=0;i<row;i++){
+        /*for(var i=0;i<row;i++){
             for(var j=0;j<column;j++){
                 context.drawImage(image,x,y,40,40); 
-                if(j==column/2){
-                    context.drawImage(imageActive,x,y,40,40); 
-                }
                 x+=50;
             }
             index.find("ul").append("<li>"+(i+1)+"</li>");
 
             x=20;y+=50;
-        }
+        }*/
+        
         y=20;
+
+        context.beginPath();
+        context.lineTo(200,200);
 
         
 
@@ -230,14 +231,23 @@
                     scale=1;
                     
                     xContent.css("transform","translate("+translateX+"px,"+translateY+"px) scale(1,1)");
-                    index.css("transform","translateY("+translateY+"px) scale(1,1)");}
-                    isReduce=false;
+                    index.css("transform","translateY("+translateY+"px) scale(1,1)");
+
                     if(isReduce){
-                    toFocus=screenW/2-(a/scale+20);
-                    console.log(a/scale);
-                    console.log(toFocus);
-                    xContent.css("transform","translateX("+toFocus+"px) scale("+scale+","+scale+")");
+                    toFocusX=screenW/2-(activeR*50+x+20);
+                    toFocusY=413/2-(activeC*50+y);
+                    console.log(activeR);
+                    console.log(activeC);
+                    translateX=toFocusX;
+                    translateY=toFocusY;
+                    xContent.css("transform","translate("+translateX+"px,"+translateY+"px) scale(1,1)");
+                    isReduce=false;
+                    
                 }
+
+                }else{alert("没点到")}
+                    
+                    
             }
                 //判断是否移动到了右边界,乘以scale是为了在图形未放大时也能正确判断，以下同理
                 if(width*scale+translateX<screenW){
