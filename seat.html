@@ -22,10 +22,12 @@
             padding: 0.7rem;
             z-index: 3;
             position: relative;
+            box-sizing: border-box;
         }
         h1,p{margin: 0;padding: 0;}
         ul{padding: 0;margin: 0;}
         li{list-style-type: none;}
+        button{border: none;background-color: inherit;}
         .title{line-height: 1.5rem}
         body{position: relative;background-color: #f5f5f5;}
         .hall-name{
@@ -35,6 +37,9 @@
             text-align: center;
             font-size: 13px;
         }
+        .map{
+            
+        }
         canvas{
 
         }
@@ -42,10 +47,10 @@
         .text27{font-size: 0.75rem;}
         .ligth-grey{color: #777;}
         .x-content{
-            transform-origin:0 0;border: solid 1px;}
+            transform-origin:0 0;}
             #seat-container{
                 position: relative;
- 
+
                 overflow: hidden;
             }
             .seat-index{
@@ -71,9 +76,37 @@
             }
             .flex-row{
                 display: flex;
+                align-items: center;
+            }
+            .confirm-block{
+                background-color: #fff;
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                height: 6.6rem;
+                z-index: 5;
+                box-sizing: border-box;
+                /*padding: 1.2rem 0.67rem 0.56rem 0.67rem;*/
             }
             .recomment-wrap{
-                background-color: #fff;
+                margin: 1.2rem 0.64rem 0.64rem 0.64rem;
+            }
+            .recommend-list{
+                width: 70%;
+                margin-left: 0.72rem;
+            }
+            .recommend-item{
+                border: solid 1px #b2b2b2;
+                width: 20%;
+                text-align: center;
+                margin-right: 0.28rem;
+                padding: 0.45rem 0;
+            }
+            .submit{
+                width: 100%;
+                background-color: #efb4b6;
+                color: #fff;
+                height: 2.5rem;
             }
         </style>
     </head>
@@ -86,7 +119,7 @@
             <div class="hall-name">
                 <p class="i-screen">2号UME MAX厅 银幕</p>
             </div>
-            <div style="height: 413px;overflow:hidden;">
+            <div class="map" style="overflow:hidden;">
                 <div class="seat-index">
                     <ul class="xseat-rows">
                     </ul>
@@ -96,25 +129,31 @@
                 </div>
             </div>
         </div>
-        <div class="recomment-wrap flex-row">
+        <div class="confirm-block">
+            <div class="recomment-wrap flex-row">
                 <div class="recommend-title">推荐座位</div>
                 <ul class="recommend-list flex-row">                                         
-                 <li class="recommend-item ticket-item " data-key="1"><span>1人</span></li> 
-                 <li class="recommend-item ticket-item " data-key="2"><span>2人</span></li>
-                 <li class="recommend-item ticket-item " data-key="3"><span>3人</span></li> 
-                 <li class="recommend-item ticket-item " data-key="4"><span>4人</span></li>
-                </ul>
-            </div>
-        <img src="images/seat.png" style="display: none;">
-        <img src="images/seat_active.png" style="display: none;">
-        <img src="images/seat_checked.png" style="display: none;">
-        <script type="text/javascript">
+                   <li class="recommend-item ticket-item " data-key="1"><span>1人</span></li> 
+                   <li class="recommend-item ticket-item " data-key="2"><span>2人</span></li>
+                   <li class="recommend-item ticket-item " data-key="3"><span>3人</span></li> 
+                   <li class="recommend-item ticket-item " data-key="4"><span>4人</span></li>
+               </ul>
+           </div>
+           <div class="ticket-wrap">
+               
+           </div>
+           <button class="submit">请先选座位</button>
+       </div>
+       <img src="images/seat.png" style="display: none;">
+       <img src="images/seat_active.png" style="display: none;">
+       <img src="images/seat_checked.png" style="display: none;">
+       <script type="text/javascript">
 
         $(function(){
             //排数
-    var row=20;
+            var row=15;
     //列数
-    var column = 13;
+    var column = 8;
     //图形起始坐标
     var x = 20,y=20;
     //图形相对于屏幕的y坐标
@@ -145,22 +184,40 @@
     var toFocusY=0;
     var isReduce=true;
 
+    
+
+
 
     if(drawing.getContext){
-        var width=40*column+10*(column+2);
-        var height=40*row+10*(row+2);
+        var width=40*column+10*(column+2)+10;//加10是因为起始坐标是20,20；而每个图形的间距是10，为了保证画布左右“内边距”一致
+        var height=40*row+10*(row+2)+10;
         drawing.width=width;
         drawing.height=height;
         index.height(height);
         var screenW=document.body.clientWidth;
         var screenH=document.body.clientHeight;
-        scale = 413/height;
+        var height1 = $(".title-content").height();
+        var height2 = $(".confirm-block").height();
+        var height3 = $(".hall-name").height();
+        if(height>screenH-height1-height2-height3-20){
+                $(".map").height(screenH-height1-height2-height3-20);
+        }else{
+                $(".map").height(height);
+        }
+
+        var mapHeight = $(".map").height();
+        if(row>=column){
+            scale = mapHeight/height;
+        }else{
+            scale = screenW/width;
+        }
+        
         var toCenter = screenW/2-width*scale/2;
         translateX=toCenter;
         xContent.css({
             width: width+"px",
             height: height+"px",
-            transform: "translateX("+toCenter+"px) scale("+scale+","+scale+")"
+            transform: "translate("+toCenter+"px,"+translateY+"px) scale("+scale+","+scale+")"
         });
         index.css("transform","scale("+scale+","+scale+")")
         var context = drawing.getContext("2d");
@@ -169,7 +226,7 @@
         var imageActive = document.images[1];
         var imageChecked = document.images[2];
         //绘制图像
-        /*for(var i=0;i<row;i++){
+        for(var i=0;i<row;i++){
             for(var j=0;j<column;j++){
                 context.drawImage(image,x,y,40,40); 
                 x+=50;
@@ -177,13 +234,20 @@
             index.find("ul").append("<li>"+(i+1)+"</li>");
 
             x=20;y+=50;
-        }*/
-        
+        }
         y=20;
-
+        
+        //画虚线
         context.beginPath();
-        context.lineTo(200,200);
-
+        context.moveTo(width/2,y);
+        context.lineTo(width/2,height);
+        context.strokeStyle="red";
+        context.stroke();
+        for(var i=0;i<height/10;i++){
+            context.clearRect(width/2-2,y+5,5,5);
+            y+=10;
+        }
+        y=20;
         
 
             //touch开始
@@ -223,77 +287,65 @@
                 if(upTime-downTime<150){
                     if(isInX){
                     //除法取整数,乘以scale是为了在缩放时，也能正确定位到图形
-                    activeR=parseInt((startX-hasMovedX-x*scale)/(50*scale));//x方向第几个
-                    activeC=parseInt((startY-hasMovedY-drawStartY)/(50*scale));//y方向第几个
-                    var a=activeR*(50*scale)+x*scale;var b=activeC*(50*scale)+y*scale;
+                    activeR=parseInt((startX-hasMovedX-x*scale)/(50*scale))+1;//x方向第几个
+                    activeC=parseInt((startY-hasMovedY-drawStartY)/(50*scale))+1;//y方向第几个
+                    console.log("排数："+activeC+", 列数："+activeR);
+                    var a=(activeR-1)*(50*scale)+x*scale;var b=(activeC-1)*(50*scale)+y*scale;
                     context.clearRect(a/scale,b/scale,40,40);
                     context.drawImage(imageChecked,a/scale,b/scale,40,40);
                     scale=1;
-                    
-                    xContent.css("transform","translate("+translateX+"px,"+translateY+"px) scale(1,1)");
-                    index.css("transform","translateY("+translateY+"px) scale(1,1)");
 
+                    //点击的图形在放大时，放到中间位置
                     if(isReduce){
-                    toFocusX=screenW/2-(activeR*50+x+20);
-                    toFocusY=413/2-(activeC*50+y);
-                    console.log(activeR);
-                    console.log(activeC);
-                    translateX=toFocusX;
-                    translateY=toFocusY;
-                    xContent.css("transform","translate("+translateX+"px,"+translateY+"px) scale(1,1)");
-                    isReduce=false;
-                    
-                }
+                        toFocusX=screenW/2-(activeR*50-10);
+                        toFocusY=mapHeight/2-(activeC*50-10);
+                        translateX=toFocusX;
+                        translateY=toFocusY;
+                        isReduce=false;
 
-                }else{alert("没点到")}
-                    
-                    
+                    }
+
+                }else{alert("没点到")}                  
             }
-                //判断是否移动到了右边界,乘以scale是为了在图形未放大时也能正确判断，以下同理
-                if(width*scale+translateX<screenW){
-                    translateX=screenW-width*scale;
-                    xContent.css({
-                        transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
-                        transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
-                    });
-                    
+
+            //缩小时，宽度未铺满屏幕时，无论怎么移动，translateX都是toCenter
+            if(width*scale<screenW){
+                translateX=toCenter;
+
+            }
+            //判断是否移动到了右边界,乘以scale是为了在图形未放大时也能正确判断，以下同理
+            else if(width*scale+translateX<screenW){
+                translateX=screenW-width*scale;
                 //判断是否移动到了左边界
             }else if(translateX>0){
                 translateX=0;
-                xContent.css({
-                    transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
-                    transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
-                });
-                
             }
-                //判断是否移动到了下边界
-                if(height*scale+translateY<413){
-                    translateY=413-height*scale;
-                    xContent.css({
-                        transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
-                        transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
-                    });
-                    index.css({
-                        transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
-                        transform: "translateY("+translateY+"px) scale("+scale+","+scale+")"
-                    });
-                    
-                //判断是否移动到了上边界
-            }else if(translateY>0){
+
+
+            //缩小时，高度不满mapHeight时，无论怎么移动，translateY都是0
+            if(height*scale<mapHeight){
+                translateY=0;   
+            }
+            //判断是否移动到了上边界
+            else if(translateY>0){
                 translateY=0;
-                xContent.css({
-                    transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
-                    transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
-                });
-                index.css({
-                    transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
-                    transform: "translateY("+translateY+"px) scale("+scale+","+scale+")"
-                });
-                
-            }
+            //判断是否移动到了下边界
+        }else if(height*scale+translateY<mapHeight){
+           translateY=mapHeight-height*scale;
+
+       }
+
+       xContent.css({
+        transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
+        transform: "translate("+translateX+"px,"+translateY+"px) scale("+scale+","+scale+")"
+    });
+       index.css({
+        transition: "all 500ms cubic-bezier(0.25,0.1,0.25,0.1) 0ms",
+        transform: "translateY("+translateY+"px) scale("+scale+","+scale+")"
+    });
 
 
-        })
+   })
 
 
 
@@ -304,9 +356,9 @@
 
         }
 
-        })
-    
+    })
 
-    </script>
+
+</script>
 </body>
 </html>
