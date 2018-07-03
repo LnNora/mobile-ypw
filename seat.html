@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_454880_rvqvjpz9li7fogvi.css">
 
     <script src="js/jquery-1.9.1.min.js"></script>
     <style type="text/css">
@@ -43,6 +44,8 @@
         canvas{
 
         }
+        .text20{font-size: 0.56rem;}
+        .text25{font-size: 0.7rem;}
         .text30{font-size: 0.83rem;}
         .text27{font-size: 0.75rem;}
         .ligth-grey{color: #777;}
@@ -73,6 +76,8 @@
             .seat-index li{
                 height: 40px;
                 margin:5px;
+                text-align: center;
+                font-size: 1rem;
             }
             .flex-row{
                 display: flex;
@@ -88,7 +93,7 @@
                 box-sizing: border-box;
                 /*padding: 1.2rem 0.67rem 0.56rem 0.67rem;*/
             }
-            .recomment-wrap{
+            .recomment-wrap,.ticket-wrap{
                 margin: 1.2rem 0.64rem 0.64rem 0.64rem;
             }
             .recommend-list{
@@ -107,6 +112,19 @@
                 background-color: #efb4b6;
                 color: #fff;
                 height: 2.5rem;
+            }
+            .ticket-item{
+                border: solid 1px grey;
+                width: 20%;
+                margin-right: 4%;
+                text-align: center;
+                justify-content: space-around;
+            }
+            .icon-cuowu{
+                font-size: 0.36rem;
+            }
+            .recommendable .ticket-wrap{
+                display: none;
             }
         </style>
     </head>
@@ -130,14 +148,36 @@
             </div>
         </div>
         <div class="confirm-block">
+        <div class="hasTicket recommendable">
+            <div class="ticket-wrap">
+                <ul class="ticket-list text20 flex-row">
+                    <li class="ticket-item flex-row " data-key="0000000000000001-A-01">
+                            <div>
+                                <p class="ticket-name">A排01座</p>
+                                <div class="ticket-price">38.5元</div>
+                            </div>
+                            <span class="iconfont icon-cuowu"></span>         
+                            
+                    </li>
+                    <li class="ticket-item flex-row " data-key="0000000000000001-A-01">
+                            <div>
+                                <p class="ticket-name">A排01座</p>
+                                <div class="ticket-price">38.5元</div>
+                            </div>
+                            <span class="iconfont icon-cuowu"></span>         
+                            
+                    </li>
+                </ul>
+            </div>
             <div class="recomment-wrap flex-row">
-                <div class="recommend-title">推荐座位</div>
-                <ul class="recommend-list flex-row">                                         
+                <div class="recommend-title text25">推荐座位</div>
+                <ul class="recommend-list flex-row text20">                                         
                    <li class="recommend-item ticket-item " data-key="1"><span>1人</span></li> 
                    <li class="recommend-item ticket-item " data-key="2"><span>2人</span></li>
                    <li class="recommend-item ticket-item " data-key="3"><span>3人</span></li> 
                    <li class="recommend-item ticket-item " data-key="4"><span>4人</span></li>
                </ul>
+           </div>
            </div>
            <div class="ticket-wrap">
                
@@ -151,9 +191,9 @@
 
         $(function(){
             //排数
-            var row=15;
+            var row=13;
     //列数
-    var column = 8;
+    var column = 25;
     //图形起始坐标
     var x = 20,y=20;
     //图形相对于屏幕的y坐标
