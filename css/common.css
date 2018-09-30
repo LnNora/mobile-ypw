@@ -87,3 +87,16 @@ body,input{
 font-family: pingfang;
 }
 input{font-size: inherit;}
+.text-33{font-size: 0.92rem;}
+.text-29{font-size:0.8rem;}
+.text-27{font-size: 0.75rem;}
+.text-23{font-size: 0.64rem;}
+.text-22{font-size: 0.61rem}
+.text-21{font-size: 0.58rem;}
+.text-18{font-size: 0.5rem;}
+.text-C80{color:#808080;}
+.text-c9080b{color:#c9080b;}
+.text-c67{color:#676767;}
+.score{color: #ff9422;}
+.flex-row{display: flex;justify-content: space-between;align-items: center;}
+.flex-column{display: flex;flex-direction:column;align-items: flex-start;}

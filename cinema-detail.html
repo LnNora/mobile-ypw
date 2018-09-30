@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="js/Swiper-4.1.0/dist/css/swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+	 <style>
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 8.33rem;
+      display: flex;
+      align-items: center;
+      
+    }
+    .bg-img{
+    	width:100%;
+    	height: 100%;
+    	position: absolute;
+    	top: 0;left:0;
+    	background-color: grey;
+      	background-size: cover;
+      	filter: blur(50px);
+    }
+    /*.swiper-container:before{
+    	content: "";
+    	width: 100%;
+    	height: 100%;
+    	background-color: #fff;
+    	position: absolute;
+    	left: 0;top: 0;
+    	filter: opacity(80%);
+    }*/
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+    .swiper-slide-active{
+    	transform: scale(1.1,1.1);
+    }
+    .swiper-slide img{
+    	width: 100%;
+    	height: 100%;
+    }
+	.swiper-wrapper{
+		height: 6.7rem;
+	}
+	.label{
+		border: solid 1px;
+		border-radius: 3px;
+		margin-right: 0.2rem;
+		padding: 0 0.2rem;
+	}
+	.cinema-info{
+		padding: 0.67rem;
+	}
+	.triangle{
+		width: 0;
+        height: 0;
+        border-bottom: 0.3rem solid #fff;
+        border-left: 0.4rem solid transparent;
+        border-right: 0.4rem solid transparent;
+        position: absolute;
+        bottom: 0;
+	}
+	.movie-info{
+		padding: 0.83rem 0;
+		text-align: center;
+		border-bottom: solid 0.5px #e6e6e6;
+	}
+	.score{margin-left: 0.56rem;}
+	.cinema-schedules{padding: 0.67rem 0;}
+	.date-wrap ul{
+		border-bottom: solid 1px #e6e6e6;
+		padding: 0 0.67rem;
+	}
+	.date-wrap .active{
+		color: #c9080b;
+		border-bottom: solid 2px;
+	}
+
+	.date-wrap li{
+		padding-bottom: 0.6rem;
+	}
+	.schedule-item{align-items:flex-start;line-height: 1.5;padding: 1.39rem 0.67rem 1.39rem 0.67rem;border-bottom: solid 1px #e6e6e6;}
+	.column1{width:22%;}
+	.column2{width:38%;}
+	.column3{width:27%;}
+	.btn-buy{color: #cc2c2c;border: solid 1px;border-radius: 10px;padding: 0 0.5rem;}
+	.item-hall{overflow:hidden; 
+
+text-overflow:ellipsis;
+
+display:-webkit-box; 
+
+-webkit-box-orient:vertical;
+
+-webkit-line-clamp:2; width:90%;}
+  </style>
+
+</head>
+<body>
+  <div class="cinema-info">
+  	<h1 class="text-27">耀莱成龙国际影城（两江店）</h1>
+  	<p class="text-23 text-C80">渝北区两江新区黄山大道中段6号星汇两江艺术中心5楼</p>
+  	<div class="text-18 text-c9080b"><span class="label">周三半价</span><span class="label">观影小食</span><span class="label">线下刷卡</span></div>
+  </div>
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="images/movie1.png"></div>
+      <div class="swiper-slide"><img src="images/movie2.png"></div>
+      <div class="swiper-slide"><img src="images/movie3.png"></div>
+      <div class="swiper-slide"><img src="images/movie4.png"></div>
+      <div class="swiper-slide">Slide 5</div>
+      <div class="swiper-slide">Slide 6</div>
+      <div class="swiper-slide">Slide 7</div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <div class="bg-img"></div>
+    <div class="triangle"></div>
+  </div>
+  <div class="movie-info">
+  	<div class="text-29">星球大战：最后的绝地武士<span class="score">9.2</span></div>
+  	<div class="text-C80 text-22"><span>152分钟</span><span>动作</span><span>黛西.雷德利、约翰波耶加</span></div>
+  </div>
+  <div class="cinema-schedules">
+  	<div class="date-wrap">
+  		<ul class="flex-row text-c67">
+  			<li class="active">今天07-13</li>
+  			<li>明天07-14</li>
+  			<li>后天07-15</li>
+  			<li>周一07-16</li>
+  		</ul>
+  	</div>
+  	<div class="schedule-container">
+  		<ul class="schedule-list">
+  			<li class="schedule-item flex-row">
+  				<div class="flex-column column1"><div class="text-33">10:35</div><div class="text-C80 text-21">15:52散场</div></div>
+  				<div class="flex-column column2"><div>英语3D</div><div class="text-C80 text-21 item-hall">8号激光厅（大）8号激光厅（大）8号激光厅（大）</div></div>
+  				<div class="flex-column column3"><div>19.9元</div><div class="text-C80 text-21">影院价：80元</div></div>
+  				<div class="flex-column column4"><button class="btn-buy">购票</button></div>
+  			</li>
+  			<li class="schedule-item flex-row">
+  				<div class="flex-column column1"><div class="text-33">10:35</div><div class="text-C80 text-21">15:52散场</div></div>
+  				<div class="flex-column column2"><div>英语3D</div><div class="text-C80 text-21 item-hall">1号厅</div></div>
+  				<div class="flex-column column3"><div>19.9元</div><div class="text-C80 text-21">影院价：80元</div></div>
+  				<div class="flex-column column4"><button class="btn-buy">购票</button></div>
+  			</li>
+  		</ul>
+  	</div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/Swiper-4.1.0/dist/js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var bg;
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 4.5,
+      spaceBetween: 16,
+      centeredSlides: true,
+      pagination: {
+        clickable: true,
+      },
+      slideToClickedSlide: true,//点击滑动
+      on:{slideChangeTransitionEnd:function(){
+      	bg=$(".swiper-slide-active img").attr("src");
+      	$(".bg-img").css("background-image","url("+bg+")")
+      }
+  }
+    });
+
+    var clientW = $("body").width();
+    var triangleW = $(".triangle").width();
+    $(".triangle").css("left",(clientW-triangleW)/2);
+
+    $(".date-wrap li").click(function(){
+    	$(".date-wrap li.active").removeClass("active");
+    	$(this).addClass("active");
+    })
+  </script>
+</body>
+</html>
